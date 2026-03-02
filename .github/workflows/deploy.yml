@@ -15,12 +15,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Sync to ServiceNow branch
+      - name: Sync to master branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -B sn_instances/dev218793
-          git push origin sn_instances/dev218793 --force
+          git checkout -B master
+          git push origin master --force
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -37,4 +37,4 @@ jobs:
           nowPassword: ${{ secrets.SN_PASSWORD }}
           nowSourceInstance: ${{ secrets.SN_INSTANCE_URL }}
           appSysID: 'bb71c7f883577610dfa1c7b6feaad3fb'
-          branch: 'sn_instances/dev218793'
+          branch: 'master'
