@@ -2,39 +2,81 @@ name: Deploy to ServiceNow
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'Incident Global Application/src/**/*.js'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
-      - name: Sync to master branch
+      - name: Get Changed Files
+        id: changed
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -B master
-          git push origin master --force
+          files=$(git diff --name-only HEAD~1 HEAD | grep '\.script\.js$' || true)
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$files" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: ServiceNow Deploy
-        uses: ServiceNow/sncicd-apply-changes@2.0.0
+      - name: Deploy to ServiceNow
+        if: steps.changed.outputs.files != ''
         env:
-          nowUsername: ${{ secrets.SN_USERNAME }}
-          nowPassword: ${{ secrets.SN_PASSWORD }}
-          nowSourceInstance: ${{ secrets.SN_INSTANCE_URL }}
-          appSysID: 'bb71c7f883577610dfa1c7b6feaad3fb'
-          branch: 'master'
+          SN_INSTANCE: ${{ secrets.SN_INSTANCE_URL }}
+          SN_USERNAME: ${{ secrets.SN_USERNAME }}
+          SN_PASSWORD: ${{ secrets.SN_PASSWORD }}
+        run: |
+          echo "Changed files:"
+          echo "${{ steps.changed.outputs.files }}"
+
+          echo "${{ steps.changed.outputs.files }}" | while read -r file; do
+            [ -z "$file" ] && continue
+            echo "========================================="
+            echo "Processing: $file"
+
+            # Extract filename without path and extension
+            filename=$(basename "$file" .script.js)
+            echo "Looking for: $filename"
+
+            # Find sys_id from runtimemap.json - search in sys_script_client section
+            sys_id=$(jq -r --arg name "$filename" '.sys_script_client[$name].sys_id // empty' "Incident Global Application/system/runtimemap.json" 2>/dev/null || echo "")
+
+            if [ -z "$sys_id" ]; then
+              echo "Warning: Could not find sys_id for $filename, skipping..."
+              continue
+            fi
+
+            echo "Found sys_id: $sys_id"
+
+            # Read the script content
+            script_content=$(cat "$file")
+
+            # Update ServiceNow via REST API
+            echo "Updating ServiceNow..."
+            response=$(curl -s -w "\n%{http_code}" -X PATCH \
+              "https://${SN_INSTANCE}.service-now.com/api/now/table/sys_script_client/${sys_id}" \
+              -H "Content-Type: application/json" \
+              -H "Accept: application/json" \
+              -u "${SN_USERNAME}:${SN_PASSWORD}" \
+              -d "{\"script\": $(echo "$script_content" | jq -Rs .)}")
+
+            http_code=$(echo "$response" | tail -n1)
+            body=$(echo "$response" | sed '$d')
+
+            if [ "$http_code" = "200" ]; then
+              echo "Successfully updated $filename in ServiceNow"
+            else
+              echo "Failed to update $filename. HTTP $http_code"
+              echo "$body"
+              exit 1
+            fi
+          done
+
+          echo "========================================="
+          echo "Deployment complete!"
