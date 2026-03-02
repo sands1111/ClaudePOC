@@ -19,12 +19,10 @@ jobs:
         run: npm install
 
       - name: ServiceNow Deploy
-        uses: ServiceNow/sncicd-publish-app@2.0.0 # Uses official SN Action
-        with:
-          versionFormat: exact
-          version: '1.0.${{ github.run_number }}'
+        uses: ServiceNow/sncicd-apply-changes@2.0.0
         env:
           nowUsername: ${{ secrets.SN_USERNAME }}
           nowPassword: ${{ secrets.SN_PASSWORD }}
           nowSourceInstance: ${{ secrets.SN_INSTANCE_URL }}
           appSysID: 'bb71c7f883577610dfa1c7b6feaad3fb'
+          branch: 'main'
