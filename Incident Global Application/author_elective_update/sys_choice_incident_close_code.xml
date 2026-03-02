@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="close_code" table="incident" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>close_code</element>
+            <name>incident</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2026-01-06 12:11:05</sys_created_on>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>close_code</sys_name>
+            <sys_package display_value="Incident Management Best Practice - San Diego" source="com.snc.best_practice.incident.sandiego">1e069819795a32108bb291bde809c98f</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+            <sys_update_name>sys_choice_incident_close_code</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-02-24 07:26:57</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Duplicate</label>
+            <language>en</language>
+            <name>incident</name>
+            <sequence>0</sequence>
+            <synonyms/>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2026-01-06 12:11:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2026-01-06 12:11:05</sys_updated_on>
+            <value>Duplicate</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Known error</label>
+            <language>en</language>
+            <name>incident</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2026-01-06 12:11:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2026-01-06 12:11:05</sys_updated_on>
+            <value>Known error</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>No resolution provided</label>
+            <language>en</language>
+            <name>incident</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2026-01-06 12:11:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2026-01-06 12:11:05</sys_updated_on>
+            <value>No resolution provided</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Resolved by caller</label>
+            <language>en</language>
+            <name>incident</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2026-01-06 12:11:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2026-01-06 12:11:05</sys_updated_on>
+            <value>Resolved by caller</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Resolved by change</label>
+            <language>en</language>
+            <name>incident</name>
+            <sequence>4</sequence>
+            <synonyms/>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2026-01-06 12:11:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2026-01-06 12:11:05</sys_updated_on>
+            <value>Resolved by change</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Resolved by problem</label>
+            <language>en</language>
+            <name>incident</name>
+            <sequence>5</sequence>
+            <synonyms/>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2026-01-06 12:11:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2026-01-06 12:11:05</sys_updated_on>
+            <value>Resolved by problem</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Resolved by request</label>
+            <language>en</language>
+            <name>incident</name>
+            <sequence>6</sequence>
+            <synonyms/>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2026-01-06 12:11:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2026-01-06 12:11:05</sys_updated_on>
+            <value>Resolved by request</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Solution provided</label>
+            <language>en</language>
+            <name>incident</name>
+            <sequence>7</sequence>
+            <synonyms/>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2026-01-06 12:11:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2026-01-06 12:11:05</sys_updated_on>
+            <value>Solution provided</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Workaround provided</label>
+            <language>en</language>
+            <name>incident</name>
+            <sequence>8</sequence>
+            <synonyms/>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2026-01-06 12:11:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2026-01-06 12:11:05</sys_updated_on>
+            <value>Workaround provided</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>User error</label>
+            <language>en</language>
+            <name>incident</name>
+            <sequence>9</sequence>
+            <synonyms/>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2026-01-06 12:11:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2026-01-06 12:11:05</sys_updated_on>
+            <value>User error</value>
+        </sys_choice>
+    </sys_choice>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b43250000002</claim_timestamp>
+        <metadata_update_name>sys_choice_incident_close_code</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:57</sys_created_on>
+        <sys_id>35ea6bbc839b7610dfa1c7b6feaad3bf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:57</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b43250000001</claim_timestamp>
+        <metadata_update_name>sys_choice_incident_close_code</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.best_practice.incident.sandiego</previous_claim_name>
+        <previous_claim_scope>com.snc.best_practice.incident.s</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:57</sys_created_on>
+        <sys_id>79ea6bbc839b7610dfa1c7b6feaad3bf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:57</sys_updated_on>
+    </sys_claim>
+</record_update>

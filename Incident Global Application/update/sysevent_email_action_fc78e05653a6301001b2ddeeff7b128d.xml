@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_email_action">
+    <sysevent_email_action action="INSERT_OR_UPDATE">
+        <action_insert>false</action_insert>
+        <action_update>false</action_update>
+        <active>true</active>
+        <advanced_condition><![CDATA[answer = true;
+if (GlidePluginManager.isActive('com.sn_cs_sm')) {
+    answer = new sn_cs_sm.ServiceManagementIncidentUtils().isValidCallerForIncNotif(current.caller_id.getRefRecord());
+}]]></advanced_condition>
+        <affected_field_on_event/>
+        <category display_value="IT Service Management" name="IT Service Management">b69d02137f232200ee2e108c3ffa9142</category>
+        <collection>incident</collection>
+        <condition/>
+        <content_type>text/html</content_type>
+        <default_digest>false</default_digest>
+        <default_interval/>
+        <description/>
+        <digest_from/>
+        <digest_html/>
+        <digest_reply_to/>
+        <digest_separator_html><![CDATA[<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>]]></digest_separator_html>
+        <digest_separator_text><![CDATA[\n--------------------------------------------------------------------------------\n]]></digest_separator_text>
+        <digest_subject/>
+        <digest_template/>
+        <digest_text/>
+        <digest_type/>
+        <digestable>false</digestable>
+        <enable_dynamic_translation>false</enable_dynamic_translation>
+        <event_name>incident.commented</event_name>
+        <event_parm_1>false</event_parm_1>
+        <event_parm_2>false</event_parm_2>
+        <exclude_delegates>false</exclude_delegates>
+        <force_delivery>false</force_delivery>
+        <from/>
+        <generation_type>event</generation_type>
+        <importance/>
+        <include_attachments>false</include_attachments>
+        <item>event.parm1</item>
+        <item_table/>
+        <mandatory>false</mandatory>
+        <message/>
+        <message_html><![CDATA[<div style="font-family: lato,arial,sans; line-height: 24px; font-size: 16px;">
+<div style="padding-bottom: 16px;">${mail_script:comment_on_incident}</div>
+<div>You can view your incident to see past activity and updates.</div>
+<div style="font-size: 16px;">${mail_script:incident_link}</div>
+<div style="font-size: 20px; padding-top: 32px; padding-bottom: 16px; line-height: 30px;"><span style="font-weight: 600;">About this incident</span></div>
+<div style="padding-bottom: 32px;">Short description: <span style="font-weight: 600;">${short_description}</span> <br>Urgency: <span style="font-weight: 600;">${urgency}</span></div>
+<div style="padding-bottom: 8px;">Thank you,<br>Service Desk Team</div>
+</div>]]></message_html>
+        <message_list>1b40c70253020200601fa3fc9ec587fe</message_list>
+        <message_text/>
+        <name>Comment left on incident</name>
+        <omit_watermark>false</omit_watermark>
+        <order>100</order>
+        <push_message_only>false</push_message_only>
+        <recipient_fields>caller_id</recipient_fields>
+        <recipient_groups/>
+        <recipient_users/>
+        <reply_to/>
+        <send_self>false</send_self>
+        <sms_alternate/>
+        <style/>
+        <subject>Comment added to ${task_effective_number} </subject>
+        <subscribable>false</subscribable>
+        <sys_class_name>sysevent_email_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-14 08:52:51</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>fc78e05653a6301001b2ddeeff7b128d</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Comment left on incident</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Incident Management Notification" source="com.snc.incident_notification">7c211c11795632108bb291bde809c94a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sysevent_email_action_fc78e05653a6301001b2ddeeff7b128d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:44</sys_updated_on>
+        <sys_version>2</sys_version>
+        <template display_value="Employee notification template">1462e7ca918a3010f877b1d70a4d6a3d</template>
+        <type>email</type>
+        <weight>0</weight>
+    </sysevent_email_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b114e0000001</claim_timestamp>
+        <metadata_update_name>sysevent_email_action_fc78e05653a6301001b2ddeeff7b128d</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:44</sys_created_on>
+        <sys_id>6adaef7c839b7610dfa1c7b6feaad341</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:44</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b114d0000001</claim_timestamp>
+        <metadata_update_name>sysevent_email_action_fc78e05653a6301001b2ddeeff7b128d</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.incident_notification</previous_claim_name>
+        <previous_claim_scope>com.snc.incident_notification</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:44</sys_created_on>
+        <sys_id>aedaef7c839b7610dfa1c7b6feaad341</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:44</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>incident</collection>
+        <condition>current.isValidRecord() &amp;&amp; (current.incident_state.changes() || (current.incident_state == IncidentState.ON_HOLD &amp;&amp; current.hold_reason.changes())) &amp;&amp; (current.child_incidents &gt; 0)</condition>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Sync Child Incident State</name>
+        <order>1000</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[synchChildIncidents();
+
+function synchChildIncidents() {
+	var updateChildState = false;
+	var updateOnHoldReason = false;
+	var ON_HOLD_REASON_AWAITING_CALLER = 1;
+	if ((current.incident_state.changes() && current.incident_state != IncidentState.RESOLVED && current.incident_state !=
+			IncidentState.CLOSED && current.incident_state != IncidentState.CANCELED &&
+			!(current.incident_state == IncidentState.ON_HOLD && current.hold_reason == ON_HOLD_REASON_AWAITING_CALLER)
+		) ||
+		(current.incident_state == IncidentState.ON_HOLD && current.hold_reason != ON_HOLD_REASON_AWAITING_CALLER)) {
+		updateChildState = true;
+	}
+	if (current.incident_state == IncidentState.ON_HOLD && current.hold_reason && current.hold_reason.changes() &&
+		current.hold_reason != ON_HOLD_REASON_AWAITING_CALLER) {
+		updateOnHoldReason = true;
+	}
+	if (updateChildState || updateOnHoldReason)
+		updateChildIncidents(updateChildState, updateOnHoldReason);
+}
+
+function updateChildIncidents(updateChildState, updateOnHoldReason) {
+	var gr = new GlideRecord("incident");
+	gr.addQuery("parent_incident", current.sys_id);
+	var lastReopenedBy = gs.getUser().getUserByID(current.reopened_by);
+	if (!lastReopenedBy.hasRole("itil,sn_incident_write"))
+		gr.addQuery("incident_state", "!=", IncidentState.RESOLVED);
+	gr.addQuery("incident_state", "!=", IncidentState.CLOSED);
+	gr.addQuery("incident_state", "!=", IncidentState.CANCELED);
+	var qc = gr.addQuery("incident_state", "!=", current.incident_state);
+	if(updateOnHoldReason)
+		qc.addOrCondition('hold_reason', "!=", current.hold_reason);
+
+	gr.addActiveQuery();
+	gr.query();
+	if (updateChildState) {
+		gr.setValue("incident_state", current.incident_state);
+		gr.setValue("state", current.state);
+	}
+	if (updateOnHoldReason)
+		gr.setValue("hold_reason", current.hold_reason);
+	gr.updateMultiple();
+}]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-07-04 08:11:39</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>eb8fa5b00b3332001604628393673a96</sys_id>
+        <sys_mod_count>66</sys_mod_count>
+        <sys_name>Sync Child Incident State</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Incident Management Best Practice - Kingston" source="com.snc.best_practice.incident.kingston">b515dc59791a32108bb291bde809c932</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_script_eb8fa5b00b3332001604628393673a96</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:51</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=eb8fa5b00b3332001604628393673a96"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b2d450000001</claim_timestamp>
+        <metadata_update_name>sys_script_eb8fa5b00b3332001604628393673a96</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:51</sys_created_on>
+        <sys_id>14ea67bc839b7610dfa1c7b6feaad308</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:51</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b2d440000001</claim_timestamp>
+        <metadata_update_name>sys_script_eb8fa5b00b3332001604628393673a96</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.best_practice.incident.kingston</previous_claim_name>
+        <previous_claim_scope>com.snc.best_practice.incident.k</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:51</sys_created_on>
+        <sys_id>50ea67bc839b7610dfa1c7b6feaad309</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:51</sys_updated_on>
+    </sys_claim>
+</record_update>

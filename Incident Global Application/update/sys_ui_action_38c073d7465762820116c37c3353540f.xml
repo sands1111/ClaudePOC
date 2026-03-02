@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>resolve_incident</action_name>
+        <active>true</active>
+        <client>true</client>
+        <client_script_v2><![CDATA[function onClick() {
+	//Set the 'Incident state' and 'State' values to 'Resolved', and display mandatory fields
+	g_form.setValue('incident_state', 6);
+	g_form.setValue('state', 6);
+	g_form.setValue('resolved_by', g_user.userID, g_user.getFullName());
+
+	// Call the UI Action and skip the 'onclick' function
+	g_form.submit(g_form.getActionName());
+}]]></client_script_v2>
+        <comments/>
+        <condition>new global.IncidentUtils().canResolveIncident(current)</condition>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_button_v2>true</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>false</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <messages/>
+        <name>Resolve</name>
+        <onclick>resolveIncident();</onclick>
+        <order>100</order>
+        <script><![CDATA[function resolveIncident(){
+	//Set the 'Incident state' and 'State' values to 'Resolved', and display mandatory fields
+	g_form.setValue('incident_state', 6);
+	g_form.setValue('state', 6);
+	g_form.setValue('resolved_by', g_user.userID);
+	
+	gsftSubmit(null, g_form.getFormElement(), 'resolve_incident'); //MUST call the 'Action name' set in this UI Action
+}
+
+//Code that runs without 'onclick'
+//Ensure call to server-side function with no browser errors
+if (typeof window == 'undefined')
+	serverResolve();
+
+function serverResolve(){
+	current.incident_state = IncidentState.RESOLVED;
+	current.state = IncidentState.RESOLVED;
+	current.resolved_by = gs.getUserID();
+	current.update();
+}]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>glide.maint</sys_created_by>
+        <sys_created_on>2008-05-09 03:12:19</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>38c073d7465762820116c37c3353540f</sys_id>
+        <sys_mod_count>38</sys_mod_count>
+        <sys_name>Resolve</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Incident Management - Core" source="com.snc.incident_management">cc54d85d79d632108bb291bde809c940</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_ui_action_38c073d7465762820116c37c3353540f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:35</sys_updated_on>
+        <table>incident</table>
+        <ui11_compatible>false</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8aef080000001</claim_timestamp>
+        <metadata_update_name>sys_ui_action_38c073d7465762820116c37c3353540f</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:35</sys_created_on>
+        <sys_id>ecda2b7c839b7610dfa1c7b6feaad3d4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:35</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8aef070000001</claim_timestamp>
+        <metadata_update_name>sys_ui_action_38c073d7465762820116c37c3353540f</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.incident_management</previous_claim_name>
+        <previous_claim_scope>com.snc.incident_management</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:35</sys_created_on>
+        <sys_id>24da2b7c839b7610dfa1c7b6feaad3d5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:35</sys_updated_on>
+    </sys_claim>
+</record_update>

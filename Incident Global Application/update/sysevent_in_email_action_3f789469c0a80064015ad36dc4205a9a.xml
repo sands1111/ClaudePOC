@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_in_email_action">
+    <sysevent_in_email_action action="INSERT_OR_UPDATE">
+        <action>record_action</action>
+        <active>false</active>
+        <assignment_operator/>
+        <condition_script/>
+        <description>This inbound email action is triggered when an email is sent to ServiceNow and:&#13;
+&#13;
+1. The email is a reply.&#13;
+2. The email being replied to was sent by ServiceNow due to an update or creation of an Incident.&#13;
+&#13;
+&#13;
+This inbound email action can update the following fields on an Incident:&#13;
+&#13;
+assigned_to&#13;
+priority&#13;
+category&#13;
+short_description&#13;
+&#13;
+In addition to being able to explicitly set the values of the above fields within the email, the whole email is added to the Incident as a comment.&#13;
+&#13;
+&#13;
+Example reply email: this reply will update comments for the Incident with "Our engineers are on this - should see resolution in a couple hours.", assign the Incident to David Loo, and set priority to "2".&#13;
+&#13;
+-----&#13;
+&#13;
+From: 	Fred Luddy &lt;fred.luddy@example.com&gt;&#13;
+Subject: 	Re: Incident INC0010008 has been assigned to you&#13;
+Date: 	June 10, 2013 10:47:00 AM PDT&#13;
+To: 	        ServiceNow&#13;
+&#13;
+Our engineers are on this - should see resolution in a couple hours.&#13;
+&#13;
+priority: 2&#13;
+assigned_to: david.loo&#13;
+&#13;
+On Jun 10, 2013, at 10:43 AM, IT Service Desk wrote:&#13;
+&#13;
+Short Description: A new occurrence of network outage&#13;
+Click here to view Incident: INC0010008&#13;
+Severity: 3 - Low&#13;
+Priority: 4 - Low&#13;
+Category: Inquiry / Help&#13;
+Comments:&#13;
+ &#13;
+Ref:MSG0000034&#13;
+&#13;
+-----</description>
+        <event_name>email.read</event_name>
+        <filter_condition/>
+        <from/>
+        <name>Update Incident</name>
+        <order>100</order>
+        <reply_email/>
+        <required_roles/>
+        <script><![CDATA[gs.include('validators');
+
+if (current.getTableName() == "incident") {
+	current.comments = "reply from: " + email.origemail + "\n\n" + email.body_text;
+	
+	if (gs.hasRole("sn_incident_write") || gs.hasRole("itil")) {
+		if (email.body.assign != undefined)
+			current.assigned_to = email.body.assign;
+		
+		if (email.body.priority != undefined && isNumeric(email.body.priority))
+			current.priority = email.body.priority;
+	}
+
+	if (current.canWrite())
+		current.update();
+}]]></script>
+        <stop_processing>false</stop_processing>
+        <sys_class_name>sysevent_in_email_action</sys_class_name>
+        <sys_created_by>fred.luddy</sys_created_by>
+        <sys_created_on>2005-04-14 06:49:56</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>3f789469c0a80064015ad36dc4205a9a</sys_id>
+        <sys_mod_count>35</sys_mod_count>
+        <sys_name>Update Incident</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="System Mailboxes" source="com.glide.mailbox">81db44d1791232108bb291bde809c92a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sysevent_in_email_action_3f789469c0a80064015ad36dc4205a9a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:42</sys_updated_on>
+        <table>incident</table>
+        <template/>
+        <type>reply</type>
+    </sysevent_in_email_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b0aab0000002</claim_timestamp>
+        <metadata_update_name>sysevent_in_email_action_3f789469c0a80064015ad36dc4205a9a</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:42</sys_created_on>
+        <sys_id>56daaf7c839b7610dfa1c7b6feaad315</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:42</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b0aab0000001</claim_timestamp>
+        <metadata_update_name>sysevent_in_email_action_3f789469c0a80064015ad36dc4205a9a</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glide.mailbox</previous_claim_name>
+        <previous_claim_scope>com.glide.mailbox</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:42</sys_created_on>
+        <sys_id>9adaaf7c839b7610dfa1c7b6feaad315</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:42</sys_updated_on>
+    </sys_claim>
+</record_update>

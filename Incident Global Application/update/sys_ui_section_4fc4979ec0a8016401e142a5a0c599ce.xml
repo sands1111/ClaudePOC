@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="4fc4979ec0a8016401e142a5a0c599ce" sys_domain="global" table="incident" version="3" view="ess">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>number</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>c405b053c3330200b6dcdfdc64d3aefd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>caller_id</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>0805b053c3330200b6dcdfdc64d3aefd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>watch_list</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>4805b053c3330200b6dcdfdc64d3aefd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>8805b053c3330200b6dcdfdc64d3aefd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>opened_at</element>
+            <position>4</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>c805b053c3330200b6dcdfdc64d3aefd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>closed_at</element>
+            <position>5</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>0c05b053c3330200b6dcdfdc64d3aefd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>urgency</element>
+            <position>6</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>4c05b053c3330200b6dcdfdc64d3aefd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>state</element>
+            <position>7</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>8c05b053c3330200b6dcdfdc64d3aefd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>hold_reason</element>
+            <position>8</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>cc05b053c3330200b6dcdfdc64d3aefd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>9</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>0005b053c3330200b6dcdfdc64d3aefe</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>short_description</element>
+            <position>10</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>4005b053c3330200b6dcdfdc64d3aefe</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>cxs_table_search.xml</element>
+            <position>11</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>8005b053c3330200b6dcdfdc64d3aefe</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter display_value="Contextual Search Results">11eb1622eb1121003623666cd206fe56</sys_ui_formatter>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type>formatter</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>comments</element>
+            <position>12</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>c005b053c3330200b6dcdfdc64d3aefe</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-11-23 09:36:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>activity.xml</element>
+            <position>13</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-11-23 09:36:30</sys_created_on>
+            <sys_id>0405b053c3330200b6dcdfdc64d3aefe</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_ui_formatter display_value="Activities (filtered)">444ea5c6bf310100e628555b3f0739d6</sys_ui_formatter>
+            <sys_ui_section caption="NULL" display_value="" name="incident" sys_domain="global" view="00ab8051791232108bb291bde809c9cc">4fc4979ec0a8016401e142a5a0c599ce</sys_ui_section>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2026-01-06 12:18:16</sys_updated_on>
+            <sys_user/>
+            <type>formatter</type>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>incident</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>fred.luddy</sys_created_by>
+            <sys_created_on>2004-08-11 21:32:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_id>4fc4979ec0a8016401e142a5a0c599ce</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_name>incident</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Contextual Search" source="com.snc.contextual_search">fe729451799632108bb291bde809c929</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+            <sys_update_name>sys_ui_section_4fc4979ec0a8016401e142a5a0c599ce</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-02-24 07:26:46</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Self Service" name="ess">00ab8051791232108bb291bde809c9cc</view>
+            <view_name>ess</view_name>
+        </sys_ui_section>
+    </sys_ui_section>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b1a040000002</claim_timestamp>
+        <metadata_update_name>sys_ui_section_4fc4979ec0a8016401e142a5a0c599ce</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:46</sys_created_on>
+        <sys_id>97da63bc839b7610dfa1c7b6feaad379</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:46</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b1a040000001</claim_timestamp>
+        <metadata_update_name>sys_ui_section_4fc4979ec0a8016401e142a5a0c599ce</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.contextual_search</previous_claim_name>
+        <previous_claim_scope>com.snc.contextual_search</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:46</sys_created_on>
+        <sys_id>dbda63bc839b7610dfa1c7b6feaad379</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:46</sys_updated_on>
+    </sys_claim>
+</record_update>

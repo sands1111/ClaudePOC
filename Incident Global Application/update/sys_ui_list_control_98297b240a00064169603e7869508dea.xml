@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_list_control">
+    <sys_ui_list_control action="INSERT_OR_UPDATE">
+        <columns_condition/>
+        <disable_nlq>false</disable_nlq>
+        <edit_condition/>
+        <edit_default_filter/>
+        <edit_roles>sn_incident_write,itil</edit_roles>
+        <empty_condition/>
+        <filter_condition/>
+        <filter_roles/>
+        <hierarchical_lists>false</hierarchical_lists>
+        <label>Child Incidents</label>
+        <link_condition/>
+        <link_roles/>
+        <list_edit_insert_row>false</list_edit_insert_row>
+        <list_edit_ref_qual_tag/>
+        <list_edit_type/>
+        <name>incident</name>
+        <new_condition/>
+        <new_roles/>
+        <omit_columns_if_empty>false</omit_columns_if_empty>
+        <omit_count>false</omit_count>
+        <omit_count_views>false</omit_count_views>
+        <omit_count_views_list/>
+        <omit_drilldown_link>false</omit_drilldown_link>
+        <omit_edit_button>false</omit_edit_button>
+        <omit_filters>false</omit_filters>
+        <omit_if_empty>false</omit_if_empty>
+        <omit_links>false</omit_links>
+        <omit_new_button>false</omit_new_button>
+        <omit_related_list_count>false</omit_related_list_count>
+        <related_list>incident.parent_incident</related_list>
+        <sys_class_name>sys_ui_list_control</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2011-04-27 18:12:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>98297b240a00064169603e7869508dea</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>incident</sys_name>
+        <sys_overrides display_value="">global</sys_overrides>
+        <sys_package display_value="Upgrade content for 2011 - activated only for new instances" source="upgrade.2011_common_practice">f2e29c55799632108bb291bde809c9e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_ui_list_control_98297b240a00064169603e7869508dea</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:45</sys_updated_on>
+    </sys_ui_list_control>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b14d20000002</claim_timestamp>
+        <metadata_update_name>sys_ui_list_control_98297b240a00064169603e7869508dea</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:45</sys_created_on>
+        <sys_id>fada23bc839b7610dfa1c7b6feaad305</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:45</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b14d20000001</claim_timestamp>
+        <metadata_update_name>sys_ui_list_control_98297b240a00064169603e7869508dea</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>upgrade.2011_common_practice</previous_claim_name>
+        <previous_claim_scope>upgrade.2011_common_practice</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:45</sys_created_on>
+        <sys_id>32da23bc839b7610dfa1c7b6feaad306</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:45</sys_updated_on>
+    </sys_claim>
+</record_update>

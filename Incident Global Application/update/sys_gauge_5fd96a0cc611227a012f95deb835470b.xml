@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_gauge">
+    <sys_gauge action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <aggregate>COUNT</aggregate>
+        <attributes/>
+        <fieldname/>
+        <group_field/>
+        <lower_limit/>
+        <name>OLAP Category by Location, Assigned to a</name>
+        <order/>
+        <other_threshold/>
+        <parent/>
+        <query/>
+        <report/>
+        <roles>itil</roles>
+        <stack_field/>
+        <sys_class_name>sys_gauge</sys_class_name>
+        <sys_created_by>glide.maint</sys_created_by>
+        <sys_created_on>2005-07-28 23:49:08</sys_created_on>
+        <sys_id>5fd96a0cc611227a012f95deb835470b</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>OLAP Category by Location, Assigned to a</sys_name>
+        <sys_package display_value="Incident" source="com.snc.incident">b8211c11795632108bb291bde809c949</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_gauge_5fd96a0cc611227a012f95deb835470b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:27</sys_updated_on>
+        <tablename>incident</tablename>
+        <title/>
+        <type>url</type>
+        <upper_limit/>
+        <url>sys_olap_view.do?sysparm_query=SELECT+NON+EMPTY+TopCount%28Order%28%7B%7B%5BCategory%5D.CHILDREN%7D%7D%2C+%5BMeasures%5D.%5BCount%5D%2C+BDESC%29%2C10%29+on+columns%2C+NON+EMPTY+TopCount%28Order%28%7B%7B%5BLocation%5D.CHILDREN%7D*%7B%5BAssigned+To%5D.CHILDREN%7D*%7B%5BPriority%5D.CHILDREN%7D%7D%2C+%5BMeasures%5D.%5BCount%5D%2C+BDESC%29%2C10%29+on+rows+FROM+Incident&amp;sysparm_drill_down=&amp;sysparm_slice</url>
+        <view/>
+    </sys_gauge>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8bb9cd0000002</claim_timestamp>
+        <metadata_update_name>sys_gauge_5fd96a0cc611227a012f95deb835470b</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:27:27</sys_created_on>
+        <sys_id>1d0b233083db7610dfa1c7b6feaad331</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:27</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8bb9cd0000001</claim_timestamp>
+        <metadata_update_name>sys_gauge_5fd96a0cc611227a012f95deb835470b</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.incident</previous_claim_name>
+        <previous_claim_scope>com.snc.incident</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:27:27</sys_created_on>
+        <sys_id>510b233083db7610dfa1c7b6feaad332</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:27</sys_updated_on>
+    </sys_claim>
+</record_update>

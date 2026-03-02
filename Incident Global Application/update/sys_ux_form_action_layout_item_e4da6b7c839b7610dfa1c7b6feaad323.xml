@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_form_action_layout_item">
+    <sys_ux_form_action_layout_item action="INSERT_OR_UPDATE">
+        <action display_value="Copy Incident">68da6b7c839b7610dfa1c7b6feaad31d</action>
+        <active>true</active>
+        <animate_icon>false</animate_icon>
+        <color>secondary</color>
+        <description/>
+        <icon/>
+        <item_type>action</item_type>
+        <label>Copy Incident</label>
+        <layout_group/>
+        <name>Copy Incident</name>
+        <order>100</order>
+        <overflow>true</overflow>
+        <sys_class_name>sys_ux_form_action_layout_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:36</sys_created_on>
+        <sys_id>e4da6b7c839b7610dfa1c7b6feaad323</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Copy Incident</sys_name>
+        <sys_package display_value="Incident Global Application" source="bb71c7f883577610dfa1c7b6feaad3fb">bb71c7f883577610dfa1c7b6feaad3fb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_ux_form_action_layout_item_e4da6b7c839b7610dfa1c7b6feaad323</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:36</sys_updated_on>
+        <table>incident</table>
+    </sys_ux_form_action_layout_item>
+</record_update>

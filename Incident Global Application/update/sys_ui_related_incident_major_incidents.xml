@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_related sys_domain="global" table="incident" version="2" view="major_incidents">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Incident - Major incidents" name="incident" related_list="NULL" sys_domain="global" view="91219c11795632108bb291bde809c917">793767026730020045c114db37415ae4</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>task_sla.task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-06-23 22:14:22</sys_created_on>
+            <sys_id>f93767026730020045c114db37415ae4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-06-23 22:14:22</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Incident - Major incidents" name="incident" related_list="NULL" sys_domain="global" view="91219c11795632108bb291bde809c917">793767026730020045c114db37415ae4</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>task.parent</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-06-23 22:14:22</sys_created_on>
+            <sys_id>7d3767026730020045c114db37415ae4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-06-23 22:14:22</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Incident - Major incidents" name="incident" related_list="NULL" sys_domain="global" view="91219c11795632108bb291bde809c917">793767026730020045c114db37415ae4</list_id>
+            <order_by/>
+            <position>2</position>
+            <related_list>change_request.parent</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-06-23 22:14:22</sys_created_on>
+            <sys_id>fd3767026730020045c114db37415ae4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-06-23 22:14:22</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Incident - Major incidents" name="incident" related_list="NULL" sys_domain="global" view="91219c11795632108bb291bde809c917">793767026730020045c114db37415ae4</list_id>
+            <order_by/>
+            <position>3</position>
+            <related_list>incident.parent_incident</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-06-23 22:14:22</sys_created_on>
+            <sys_id>713767026730020045c114db37415ae5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-06-23 22:14:22</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Incident - Major incidents" name="incident" related_list="NULL" sys_domain="global" view="91219c11795632108bb291bde809c917">793767026730020045c114db37415ae4</list_id>
+            <order_by/>
+            <position>4</position>
+            <related_list>incident_task.incident</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-06-23 22:14:22</sys_created_on>
+            <sys_id>f13767026730020045c114db37415ae5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2015-06-23 22:14:22</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>Incident - Major incidents</calculated_name>
+            <filter/>
+            <name>incident</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2015-06-23 22:14:22</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_id>793767026730020045c114db37415ae4</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_name>Incident - Major incidents</sys_name>
+            <sys_package display_value="Incident" source="com.snc.incident">b8211c11795632108bb291bde809c949</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+            <sys_update_name>sys_ui_related_incident_major_incidents</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-02-24 07:26:25</sys_updated_on>
+            <sys_user/>
+            <view display_value="Major incidents" name="major_incidents">91219c11795632108bb291bde809c917</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8ac5a00000001</claim_timestamp>
+        <metadata_update_name>sys_ui_related_incident_major_incidents</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:25</sys_created_on>
+        <sys_id>8aca637c839b7610dfa1c7b6feaad3f2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:25</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8ac59f0000001</claim_timestamp>
+        <metadata_update_name>sys_ui_related_incident_major_incidents</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.incident</previous_claim_name>
+        <previous_claim_scope>com.snc.incident</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:25</sys_created_on>
+        <sys_id>ceca637c839b7610dfa1c7b6feaad3f2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:25</sys_updated_on>
+    </sys_claim>
+</record_update>

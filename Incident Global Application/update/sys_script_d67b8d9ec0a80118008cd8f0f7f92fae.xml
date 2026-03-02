@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>incident</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>incident autoclose</name>
+        <order>100</order>
+        <priority/>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[// This script automatically closes incidents that are resolved
+// and haven't been updated in the specified number of days.
+// This number is a property in System Properties.
+// To place a comment in the incident, uncomment the "gr.comments" line.
+
+autoCloseIncidents();
+
+function autoCloseIncidents() {
+	var ps = gs.getProperty('glide.ui.autoclose.time');
+	var pn = parseInt(ps);
+	var queryTime = new GlideDateTime();
+	queryTime.addDaysUTC(-pn);
+
+	if (pn > 0) {
+		var gr = new GlideRecord('incident');
+		gr.addQuery('incident_state', IncidentState.RESOLVED);
+		if (gs.getProperty('com.snc.incident.autoclose.basedon.resolved_at', 'false') === 'true') {
+			gr.addQuery('resolved_at', '<', queryTime);
+		}
+		else {
+			gr.addQuery('sys_updated_on', '<', queryTime);
+		}
+		if (pm.isActive('com.snc.incident.mim')) {
+			var mim = gr.addNullQuery('major_incident_state');
+			mim.addOrCondition('major_incident_state', '!=', new sn_major_inc_mgmt.MajorIncidentTriggerRulesSNC().MAJOR_INCIDENT_STATE.ACCEPTED);
+		}
+		// Exclude OT Incident and its children being affected by this script
+		if (pm.isActive('com.sn_ot_inc_mgmt')) {
+			gr.addEncodedQuery('sys_class_nameNOT IN' + new TableUtils('sn_ot_incident').getAllExtensions().toArray().join());
+		}
+		gr.query();
+		while(gr.next()) {
+			gr.incident_state = IncidentState.CLOSED;
+			gr.state = IncidentState.CLOSED;
+			//  gr.comments = 'Incident automatically closed after ' + pn + ' days in the Resolved state.';
+			gr.active = false;
+			gr.closed_by = gr.resolved_by;
+			gr.update();
+		}
+	}
+}]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>glide.maint</sys_created_by>
+        <sys_created_on>2006-08-04 00:00:56</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>d67b8d9ec0a80118008cd8f0f7f92fae</sys_id>
+        <sys_mod_count>62</sys_mod_count>
+        <sys_name>incident autoclose</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Incident" source="com.snc.incident">b8211c11795632108bb291bde809c949</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_script_d67b8d9ec0a80118008cd8f0f7f92fae</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:51</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=d67b8d9ec0a80118008cd8f0f7f92fae"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b2bf90000002</claim_timestamp>
+        <metadata_update_name>sys_script_d67b8d9ec0a80118008cd8f0f7f92fae</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:51</sys_created_on>
+        <sys_id>50ea27bc839b7610dfa1c7b6feaad3c4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:51</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b2bf90000001</claim_timestamp>
+        <metadata_update_name>sys_script_d67b8d9ec0a80118008cd8f0f7f92fae</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.incident</previous_claim_name>
+        <previous_claim_scope>com.snc.incident</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:51</sys_created_on>
+        <sys_id>9cea27bc839b7610dfa1c7b6feaad3c4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:51</sys_updated_on>
+    </sys_claim>
+</record_update>

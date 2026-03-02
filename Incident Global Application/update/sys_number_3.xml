@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_number">
+    <sys_number action="INSERT_OR_UPDATE">
+        <category display_value="Incident" name="incident">incident</category>
+        <maximum_digits>7</maximum_digits>
+        <number>10000</number>
+        <prefix>INC</prefix>
+        <sys_class_name>sys_number</sys_class_name>
+        <sys_created_by>system_bootstrap</sys_created_by>
+        <sys_created_on>2004-08-04 23:49:54</sys_created_on>
+        <sys_id>3</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>INC</sys_name>
+        <sys_package display_value="System (apps/system_number)" source="apps/system_number">bb8b4c11791232108bb291bde809c929</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_number_3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:46</sys_updated_on>
+    </sys_number>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b183e0000001</claim_timestamp>
+        <metadata_update_name>sys_number_3</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:46</sys_created_on>
+        <sys_id>87da63bc839b7610dfa1c7b6feaad307</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:46</sys_updated_on>
+    </sys_claim>
+</record_update>

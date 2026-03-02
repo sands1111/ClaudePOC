@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>reopen_incident</action_name>
+        <active>true</active>
+        <client>true</client>
+        <client_script_v2><![CDATA[function onClick() {
+
+	if (g_form.getValue('comments') == '') {
+		// Remove any existing field message, set comments mandatory, and show a new field message
+		try {
+			g_form.hideFieldMsg('comments');
+		} catch(e) {
+
+		}
+		g_form.setMandatory('comments', true);
+		g_form.showFieldMsg('comments', getMessage('Please enter a comment when reopening an Incident'), 'error');
+		return false;  // Abort submission
+	}
+
+	// Call the UI Action and skip the 'onclick' function
+	g_form.submit(g_form.getActionName());
+}]]></client_script_v2>
+        <comments/>
+        <condition>new global.IncidentUtils().canReopenIncident(current)</condition>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_button_v2>true</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint>Reopen</hint>
+        <isolate_script>false</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <messages/>
+        <name>Reopen</name>
+        <onclick>reopenIncident()</onclick>
+        <order>100</order>
+        <script><![CDATA[// Client side onclick function
+function reopenIncident() {
+    if (g_form.getValue('comments') == '') {
+        g_form.setMandatory('comments', true);
+    }
+    gsftSubmit(null, g_form.getFormElement(), 'reopen_incident'); // MUST call the 'Action name' set in this UI Action
+}
+
+// Code that runs without 'onclick'
+// Ensure call to server side function with no browser errors
+if (typeof window == 'undefined')
+    serverReopen();
+
+function serverReopen() {
+    // Set Incident state to active, update and reload the record
+    current.incident_state = 2;
+    current.state = 2;
+    current.update();
+    var msg;
+    if (current.child_incidents > 0) {
+        msg = gs.getMessage("{0} and its child incident(s) have been reopened", current.getDisplayValue());
+    } else {
+        msg = gs.getMessage("{0} has been reopened", current.getDisplayValue());
+    }
+    gs.addInfoMessage(msg);
+    action.setRedirectURL(current);
+}]]></script>
+        <show_insert>false</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2010-09-02 14:29:06</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>d2d9d8110a0a3c7401bbadabed9b91db</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>Reopen</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Upgrade content for 2011 - activated only for new instances" source="upgrade.2011_common_practice">f2e29c55799632108bb291bde809c9e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_ui_action_d2d9d8110a0a3c7401bbadabed9b91db</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:36</sys_updated_on>
+        <table>incident</table>
+        <ui11_compatible>false</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8af30c0000002</claim_timestamp>
+        <metadata_update_name>sys_ui_action_d2d9d8110a0a3c7401bbadabed9b91db</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:36</sys_created_on>
+        <sys_id>7cda6b7c839b7610dfa1c7b6feaad3d6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:36</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8af30c0000001</claim_timestamp>
+        <metadata_update_name>sys_ui_action_d2d9d8110a0a3c7401bbadabed9b91db</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>upgrade.2011_common_practice</previous_claim_name>
+        <previous_claim_scope>upgrade.2011_common_practice</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:36</sys_created_on>
+        <sys_id>b0da6b7c839b7610dfa1c7b6feaad3d7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:36</sys_updated_on>
+    </sys_claim>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>d2d9d8110a0a3c7401bbadabed9b91db</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-04 07:23:21</sys_created_on>
+        <sys_id>0c72e31153851a10b79addeeff7b1254</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-04 07:23:21</sys_updated_on>
+        <table>sys_ui_action</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

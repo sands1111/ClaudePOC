@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_producer">
+    <sc_cat_item_producer action="INSERT_OR_UPDATE">
+        <access_type/>
+        <active>true</active>
+        <allow_edit>false</allow_edit>
+        <availability>on_both</availability>
+        <billable>false</billable>
+        <can_cancel>true</can_cancel>
+        <category display_value="Can We Help You?">e15706fc0a0a0aa7007fc21e1ab70c2f</category>
+        <cc_render_type/>
+        <checked_out/>
+        <cost/>
+        <custom_cart/>
+        <delivery_plan display_value="DEFAULT">523da512c611228900811a37c97c2014</delivery_plan>
+        <delivery_plan_script/>
+        <delivery_time>1970-01-03 00:00:00</delivery_time>
+        <description><![CDATA[<p style="margin: 0px;"><span style="font-family: arial,helvetica,sans-serif; font-size: medium;">Request assistance with an issue you are having. An incident record will be created and managed through to successful resolution. You will also be notified of progress.</span></p>]]></description>
+        <display_price_property>non_zero</display_price_property>
+        <entitlement_script/>
+        <flow_designer_flow/>
+        <fulfillment_automation_level/>
+        <group/>
+        <hide_sp>false</hide_sp>
+        <icon/>
+        <ignore_price>false</ignore_price>
+        <image/>
+        <list_price>0</list_price>
+        <location/>
+        <make_item_non_conversational>false</make_item_non_conversational>
+        <mandatory_attachment>false</mandatory_attachment>
+        <meta/>
+        <mobile_hide_price>false</mobile_hide_price>
+        <mobile_picture/>
+        <mobile_picture_type>use_mobile_picture</mobile_picture_type>
+        <model/>
+        <name>Create Incident</name>
+        <no_attachment_v2>false</no_attachment_v2>
+        <no_cart>false</no_cart>
+        <no_cart_v2>false</no_cart_v2>
+        <no_delivery_time_v2>false</no_delivery_time_v2>
+        <no_order>false</no_order>
+        <no_order_now>false</no_order_now>
+        <no_proceed_checkout>false</no_proceed_checkout>
+        <no_quantity>false</no_quantity>
+        <no_quantity_v2>false</no_quantity_v2>
+        <no_save_as_draft>false</no_save_as_draft>
+        <no_search>false</no_search>
+        <no_wishlist_v2>false</no_wishlist_v2>
+        <omit_price>false</omit_price>
+        <order>200</order>
+        <ordered_item_link/>
+        <owner/>
+        <picture/>
+        <post_insert_script/>
+        <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=3f1dd0320a0a0b99000a53f7604a2ef9&amp;sysparm_preview=true", "summary");</preview>
+        <price>0</price>
+        <published_ref/>
+        <recurring_frequency/>
+        <recurring_price>0</recurring_price>
+        <redirect_url>generated_record</redirect_url>
+        <request_method/>
+        <roles/>
+        <save_options/>
+        <save_script/>
+        <sc_catalogs>e0d08b13c3330100c8b837659bba8fb4</sc_catalogs>
+        <sc_ic_item_staging/>
+        <sc_ic_version/>
+        <sc_template/>
+        <script><![CDATA[var isMobile = GlideMobileExtensions.getDeviceType() == 'm';
+var link = isMobile ? '#/!list/incident/q:active=true%5Ecaller_id=javascript:gs.user_id()%5EEQ' : 'home.do';
+
+var linkLbl = isMobile ? "List" : "Homepage";
+var br = '<br/>';
+var linkURL = '<a href="' + link + '">' + gs.getMessage(linkLbl) + '</a>';
+var msgArgs = [br, linkURL];
+
+var info = gs.getMessage("This incident was opened on your behalf{0}The IT department will contact you if they need any further information{0}You can track status from this {1} {0}", msgArgs);
+
+gs.addInfoMessage(info);
+var caller = gs.getUserID();
+var parent_table = RP.getParameterValue('sysparm_parent_table');
+if (JSUtil.notNil(parent_table)) {
+	var parent_map = new GlideRecord('request_parent_mapping');
+	parent_map.addQuery('parent_table', parent_table);
+	parent_map.query();
+	if (parent_map.next())
+		var requested_for_field = parent_map.getValue('requested_for_field');
+	var parentGR = new GlideRecord(parent_table);
+	parentGR.addQuery('sys_id', RP.getParameterValue('sysparm_parent_sys_id'));
+	parentGR.query();
+	if (parentGR.next())
+		caller = parentGR.getValue(requested_for_field);
+}
+current.contact_type = 'self-service';
+current.caller_id = caller;
+var prodCommentStr = producer.comments + "";
+if (prodCommentStr.length > 80)
+	current.short_description = prodCommentStr.substring(0, 80);
+else
+	current.short_description = prodCommentStr;
+current.description = prodCommentStr;
+
+var incRPUtil = new LinkRecordProducerToIncident();
+incRPUtil.linkRecordProducerToParentIncident(RP.getParameterValue('sysparm_parent_sys_id'), current);
+
+]]></script>
+        <short_description>Create an Incident record to report and request
+			assistance with an issue you are having</short_description>
+        <show_variable_help_on_load>false</show_variable_help_on_load>
+        <start_closed>false</start_closed>
+        <state/>
+        <sys_class_name>sc_cat_item_producer</sys_class_name>
+        <sys_created_by>glide.maint</sys_created_by>
+        <sys_created_on>2008-04-28 17:06:03</sys_created_on>
+        <sys_id>3f1dd0320a0a0b99000a53f7604a2ef9</sys_id>
+        <sys_mod_count>38</sys_mod_count>
+        <sys_name>Create Incident</sys_name>
+        <sys_package display_value="Service Catalog core applications" source="com.glideapp.servicecatalog">659118d5795632108bb291bde809c9cd</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sc_cat_item_producer_3f1dd0320a0a0b99000a53f7604a2ef9</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:41</sys_updated_on>
+        <table_name>incident</table_name>
+        <taxonomy_topic display_value="Technology services">06d3df67c3053010069aec4b7d40dd70</taxonomy_topic>
+        <template/>
+        <template_manager_roles/>
+        <type>item</type>
+        <use_sc_layout>true</use_sc_layout>
+        <vendor/>
+        <version>5</version>
+        <view>ess</view>
+        <visible_bundle>true</visible_bundle>
+        <visible_guide>true</visible_guide>
+        <visible_standalone>true</visible_standalone>
+        <workflow/>
+    </sc_cat_item_producer>
+    <sys_translated_text action="delete_multiple" query="documentkey=3f1dd0320a0a0b99000a53f7604a2ef9"/>
+    <fx_price action="delete_multiple" query="id=3f1dd0320a0a0b99000a53f7604a2ef9"/>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>price</field>
+        <id>3f1dd0320a0a0b99000a53f7604a2ef9</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>guest</sys_created_by>
+        <sys_created_on>2011-10-12 17:29:27</sys_created_on>
+        <sys_id>a24edb0dc0a80166246d80944e8b105a</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:38</sys_updated_on>
+        <table>sc_cat_item_producer</table>
+        <type>calculated</type>
+    </fx_price>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>recurring_price</field>
+        <id>3f1dd0320a0a0b99000a53f7604a2ef9</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2013-04-29 12:00:31</sys_created_on>
+        <sys_id>21ca7f779fa130005192ed93ee4bcc75</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:38</sys_updated_on>
+        <table>sc_cat_item_producer</table>
+        <type>calculated</type>
+    </fx_price>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8af83b0000001</claim_timestamp>
+        <metadata_update_name>sc_cat_item_producer_3f1dd0320a0a0b99000a53f7604a2ef9</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:38</sys_created_on>
+        <sys_id>0ddaab7c839b7610dfa1c7b6feaad390</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:38</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8af83a0000001</claim_timestamp>
+        <metadata_update_name>sc_cat_item_producer_3f1dd0320a0a0b99000a53f7604a2ef9</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glideapp.servicecatalog</previous_claim_name>
+        <previous_claim_scope>com.glideapp.servicecatalog</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:38</sys_created_on>
+        <sys_id>41daab7c839b7610dfa1c7b6feaad391</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:38</sys_updated_on>
+    </sys_claim>
+</record_update>

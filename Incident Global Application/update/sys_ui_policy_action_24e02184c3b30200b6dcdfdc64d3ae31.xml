@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>hold_reason</field>
+        <field_message/>
+        <field_message_type/>
+        <mandatory>true</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2015-11-13 10:27:58</sys_created_on>
+        <sys_id>24e02184c3b30200b6dcdfdc64d3ae31</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>hold_reason</sys_name>
+        <sys_package display_value="Incident Management - Core" source="com.snc.incident_management">cc54d85d79d632108bb291bde809c940</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_ui_policy_action_24e02184c3b30200b6dcdfdc64d3ae31</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:24</sys_updated_on>
+        <table>incident</table>
+        <ui_policy display_value="When state is On Hold the On hold reason field is visible and mandatory">d8e02184c3b30200b6dcdfdc64d3ae30</ui_policy>
+        <value/>
+        <value_action/>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=24e02184c3b30200b6dcdfdc64d3ae31"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8bac3a0000002</claim_timestamp>
+        <metadata_update_name>sys_ui_policy_action_24e02184c3b30200b6dcdfdc64d3ae31</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:27:24</sys_created_on>
+        <sys_id>d80b6ffc839b7610dfa1c7b6feaad394</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:24</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8bac3a0000001</claim_timestamp>
+        <metadata_update_name>sys_ui_policy_action_24e02184c3b30200b6dcdfdc64d3ae31</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.incident_management</previous_claim_name>
+        <previous_claim_scope>com.snc.incident_management</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:27:24</sys_created_on>
+        <sys_id>100b6ffc839b7610dfa1c7b6feaad395</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:24</sys_updated_on>
+    </sys_claim>
+</record_update>

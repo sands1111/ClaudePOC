@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>incident</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="incident">stateVALCHANGES^ORclose_codeVALCHANGES^close_code=Known error^state=6^EQ<item endquery="false" field="state" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/>
+            <item display_value="-- None --" endquery="false" field="close_code" goto="false" newquery="false" operator="VALCHANGES" or="true" value=""/>
+            <item display_value="Known error" endquery="false" field="close_code" goto="false" newquery="false" operator="=" or="false" value="Known error"/>
+            <item display_value="Resolved" endquery="false" field="state" goto="false" newquery="false" operator="=" or="false" value="6"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Check if Known error article required</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+    var knowledgeGr = new GlideRecord('kb_knowledge');
+    var kbTaskGr = knowledgeGr.addJoinQuery('m2m_kb_task');
+    knowledgeGr.addQuery('sys_class_name', 'kb_template_known_error_article');
+    kbTaskGr.addCondition('task', current.sys_id);
+    knowledgeGr.setLimit(1);
+    knowledgeGr.query();
+    if (!knowledgeGr.hasNext()) {
+        current.setAbortAction(true);
+        gs.addErrorMessage(gs.getMessage("Please attach a Known error article, before resolving the record as known error"));
+    }
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-20 09:40:47</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>74dc2340533230108b91ddeeff7b1230</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Check if Known error article required</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Incident Management Best Practice - San Diego" source="com.snc.best_practice.incident.sandiego">1e069819795a32108bb291bde809c98f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_script_74dc2340533230108b91ddeeff7b1230</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:49</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=74dc2340533230108b91ddeeff7b1230"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b26110000001</claim_timestamp>
+        <metadata_update_name>sys_script_74dc2340533230108b91ddeeff7b1230</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:49</sys_created_on>
+        <sys_id>88eae3bc839b7610dfa1c7b6feaad39c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:49</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b26100000001</claim_timestamp>
+        <metadata_update_name>sys_script_74dc2340533230108b91ddeeff7b1230</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.best_practice.incident.sandiego</previous_claim_name>
+        <previous_claim_scope>com.snc.best_practice.incident.s</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:49</sys_created_on>
+        <sys_id>c4eae3bc839b7610dfa1c7b6feaad39d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:49</sys_updated_on>
+    </sys_claim>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>74dc2340533230108b91ddeeff7b1230</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-16 03:46:30</sys_created_on>
+        <sys_id>97dcaa309326d210c3bbf04e64891877</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-16 03:46:30</sys_updated_on>
+        <table>sys_script</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_email_action">
+    <sysevent_email_action action="INSERT_OR_UPDATE">
+        <action_insert>false</action_insert>
+        <action_update>false</action_update>
+        <active>true</active>
+        <advanced_condition/>
+        <affected_field_on_event>parm1</affected_field_on_event>
+        <category display_value="Configuration Management" name="Configuration Management">a69d02137f232200ee2e108c3ffa912a</category>
+        <collection>incident</collection>
+        <condition/>
+        <content_type>multipart/mixed</content_type>
+        <default_digest>false</default_digest>
+        <default_interval/>
+        <description/>
+        <digest_from/>
+        <digest_html/>
+        <digest_reply_to/>
+        <digest_separator_html><![CDATA[<br><hr><br>]]></digest_separator_html>
+        <digest_separator_text><![CDATA[\n--------------------------------------------------------------------------------\n]]></digest_separator_text>
+        <digest_subject/>
+        <digest_template/>
+        <digest_text/>
+        <digest_type/>
+        <digestable>false</digestable>
+        <enable_dynamic_translation>false</enable_dynamic_translation>
+        <event_name>ci.affected</event_name>
+        <event_parm_1>false</event_parm_1>
+        <event_parm_2>false</event_parm_2>
+        <exclude_delegates>false</exclude_delegates>
+        <force_delivery>false</force_delivery>
+        <from/>
+        <generation_type>event</generation_type>
+        <importance/>
+        <include_attachments>false</include_attachments>
+        <item>event.parm1</item>
+        <item_table>cmdb_ci</item_table>
+        <mandatory>false</mandatory>
+        <message><![CDATA[Your Subscribed CI ${event.parm2} is being affected by ${number}
+
+Short Description: ${short_description}
+Click here to view Incident: ${URI_REF}
+<hr/>
+Priority: ${priority}
+Comments:
+${comments}]]></message>
+        <message_html/>
+        <message_list>4b40c70253020200601fa3fc9ec587ea</message_list>
+        <message_text/>
+        <name>CI affected</name>
+        <omit_watermark>false</omit_watermark>
+        <order/>
+        <push_message_only>false</push_message_only>
+        <recipient_fields/>
+        <recipient_groups/>
+        <recipient_users/>
+        <reply_to/>
+        <send_self>false</send_self>
+        <sms_alternate><![CDATA[Subscribed CI ${event.parm2} is being affected by ${number}]]></sms_alternate>
+        <style/>
+        <subject>Your Subscribed CI ${event.parm2} is being affected by ${number}</subject>
+        <subscribable>true</subscribable>
+        <sys_class_name>sysevent_email_action</sys_class_name>
+        <sys_created_by>glide.maint</sys_created_by>
+        <sys_created_on>2007-11-30 00:52:38</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>8e0a46fa0a0a0286002d78c0934d827c</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>CI affected</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Configuration Management (CMDB)" source="com.snc.cmdb">6bbdc091799232108bb291bde809c9ff</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sysevent_email_action_8e0a46fa0a0a0286002d78c0934d827c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:43</sys_updated_on>
+        <sys_version/>
+        <template display_value="Unsubscribe and Preferences">7ed0481f3b0b2200c869c2c703efc487</template>
+        <type>email</type>
+        <weight>0</weight>
+    </sysevent_email_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b0e8c0000002</claim_timestamp>
+        <metadata_update_name>sysevent_email_action_8e0a46fa0a0a0286002d78c0934d827c</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:43</sys_created_on>
+        <sys_id>2adaaf7c839b7610dfa1c7b6feaad3b2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:43</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b0e8c0000001</claim_timestamp>
+        <metadata_update_name>sysevent_email_action_8e0a46fa0a0a0286002d78c0934d827c</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.cmdb</previous_claim_name>
+        <previous_claim_scope>com.snc.cmdb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:43</sys_created_on>
+        <sys_id>6edaaf7c839b7610dfa1c7b6feaad3b2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:43</sys_updated_on>
+    </sys_claim>
+</record_update>

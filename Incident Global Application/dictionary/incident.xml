@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="email_client=true,hasWorkflow=true,live_feed=true,all_tables.query_hints=true" audit="true" db_object_id="b4211c11795632108bb291bde809c9e5" extends="task" label="Incident" max_length="40" name="incident" text_index="true" type="collection">
+        <element default="0" hint="Number of child Incidents related to this Problem" label="Child Incidents" max_length="40" name="child_incidents" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Probable cause" max_length="4000" name="cause" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Last reopened at" max_length="40" name="reopened_time" read_only="true" type="glide_date_time"/>
+        <element attributes="encode_utf8=false" hint="Related problem, if one exists" label="Problem" max_length="32" name="problem_id" reference="problem" reference_floats="true" type="reference"/>
+        <element attributes="encode_utf8=false,ref_contributions=user_show_incidents" default="javascript:incidentGetCaller();" dependent="company" dependent_on_field="company" dynamic_default_value="0d39d9105f220100a9ad2572f2b47796" hint="Person who reported or is affected by this incident" label="Caller" max_length="32" name="caller_id" reference="sys_user" type="reference" use_dependent_field="true" use_dynamic_default="true"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" dependent="category" dependent_on_field="category" label="Subcategory" max_length="40" name="subcategory" type="string" use_dependent_field="true">
+            <choice>
+                <element dependent_value="hardware" inactive_on_update="false" label="Disk" value="disk"/>
+                <element dependent_value="network" inactive_on_update="false" label="VPN" value="vpn"/>
+                <element dependent_value="network" inactive_on_update="false" label="DNS" value="dns"/>
+                <element dependent_value="software" inactive_on_update="false" label="Operating System" value="os"/>
+                <element dependent_value="hardware" inactive_on_update="false" label="Monitor" value="monitor"/>
+                <element dependent_value="network" inactive_on_update="false" label="Wireless" value="wireless"/>
+                <element dependent_value="inquiry" inactive_on_update="false" label="Antivirus" value="antivirus"/>
+                <element dependent_value="database" inactive_on_update="false" label="DB2" value="db2"/>
+                <element dependent_value="software" inactive_on_update="false" label="Email" value="email"/>
+                <element dependent_value="hardware" inactive_on_update="false" label="Keyboard" value="keyboard"/>
+                <element dependent_value="network" inactive_on_update="false" label="DHCP" value="dhcp"/>
+                <element dependent_value="inquiry" inactive_on_update="false" label="Email" value="email"/>
+                <element dependent_value="database" inactive_on_update="false" label="Oracle" value="oracle"/>
+                <element dependent_value="hardware" inactive_on_update="false" label="CPU" value="cpu"/>
+                <element dependent_value="hardware" inactive_on_update="false" label="Mouse" value="mouse"/>
+                <element dependent_value="network" inactive_on_update="false" label="IP Address" value="ip address"/>
+                <element dependent_value="inquiry" inactive_on_update="false" label="Internal Application" value="internal application"/>
+                <element dependent_value="database" inactive_on_update="false" label="MS SQL Server" value="sql server"/>
+                <element dependent_value="hardware" inactive_on_update="false" label="Memory" value="memory"/>
+            </choice>
+        </element>
+        <element attributes="encode_utf8=false" hint="Can be used to collect Incidents for the same root issue" label="Parent Incident" max_length="32" name="parent_incident" reference="incident" reference_floats="true" reference_qual="javascript:'sys_id!='+current.sys_id" type="reference" use_reference_qualifier="advanced"/>
+        <element attributes="encode_utf8=false,ignore_filter_on_new=true" label="Last reopened by" max_length="32" name="reopened_by" read_only="true" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Business impact" max_length="4000" name="business_impact" type="string"/>
+        <element choice="1" label="On hold reason" max_length="40" name="hold_reason" type="integer">
+            <choice>
+                <element inactive_on_update="false" label="Awaiting Caller" sequence="1" value="1"/>
+                <element inactive_on_update="false" label="Awaiting Change" sequence="2" value="5"/>
+                <element inactive_on_update="false" label="Awaiting Problem" sequence="3" value="3"/>
+                <element inactive_on_update="false" label="Awaiting Vendor" sequence="4" value="4"/>
+            </choice>
+        </element>
+        <element choice="3" default="1" label="Notify" max_length="40" name="notify" type="integer">
+            <choice>
+                <element inactive_on_update="false" label="Do Not Notify" sequence="1" value="1"/>
+                <element inactive_on_update="false" label="Send Email" sequence="2" value="2"/>
+                <element inactive_on_update="false" label="Telephone" sequence="3" value="3"/>
+            </choice>
+        </element>
+        <element choice="3" default="3" label="Severity" max_length="40" name="severity" type="integer">
+            <choice>
+                <element inactive_on_update="false" label="1 - High" sequence="1" value="1"/>
+                <element inactive_on_update="false" label="2 - Medium" sequence="2" value="2"/>
+                <element inactive_on_update="false" label="3 - Low" sequence="3" value="3"/>
+            </choice>
+        </element>
+        <element attributes="base_start=true" hint="Table of the Origin record" label="Origin table" max_length="80" name="origin_table" type="table_name"/>
+        <element default="0" hint="Number of times Incident state has changed from Resolved or Closed to another state" label="Reopen count" max_length="40" name="reopen_count" type="integer"/>
+        <element attributes="encode_utf8=false,ignore_filter_on_new=true" label="Resolved by" max_length="32" name="resolved_by" reference="sys_user" reference_floats="true" type="reference"/>
+        <element attributes="encode_utf8=false" hint="Related change, if one exists" label="Change Request" max_length="32" name="rfc" reference="change_request" reference_floats="true" type="reference"/>
+        <element choice="3" choice_field="state" choice_table="incident" default="1" hint="Workflow state of the incident" label="Incident state" max_length="40" name="incident_state" type="integer">
+            <choice>
+                <element inactive_on_update="false" label="In Progress" sequence="2" value="2"/>
+                <element inactive_on_update="false" label="Canceled" sequence="8" value="8"/>
+                <element inactive_on_update="false" label="On Hold" sequence="3" value="3"/>
+                <element inactive_on_update="false" label="Resolved" sequence="6" value="6"/>
+                <element inactive_on_update="false" label="Closed" sequence="7" value="7"/>
+                <element inactive_on_update="false" label="New" sequence="1" value="1"/>
+            </choice>
+        </element>
+        <element attributes="ignore_filter_on_new=true" hint="Time elapsed (stored in seconds) before Incident was Resolved" label="Resolve time" max_length="40" name="calendar_stc" read_only="true" type="integer"/>
+        <element dependent="origin_table" dependent_on_field="origin_table" label="Origin" max_length="32" name="origin_id" type="document_id" use_dependent_field="true"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" hint="For use in reporting" label="Resolution code" max_length="40" name="close_code" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Workaround provided" sequence="8" value="Workaround provided"/>
+                <element inactive_on_update="false" label="Duplicate" sequence="0" value="Duplicate"/>
+                <element inactive_on_update="false" label="Resolved by change" sequence="4" value="Resolved by change"/>
+                <element inactive_on_update="false" label="User error" sequence="9" value="User error"/>
+                <element inactive_on_update="false" label="Known error" sequence="1" value="Known error"/>
+                <element inactive_on_update="false" label="Resolved by problem" sequence="5" value="Resolved by problem"/>
+                <element inactive_on_update="false" label="No resolution provided" sequence="2" value="No resolution provided"/>
+                <element inactive_on_update="false" label="Resolved by request" sequence="6" value="Resolved by request"/>
+                <element inactive_on_update="false" label="Resolved by caller" sequence="3" value="Resolved by caller"/>
+                <element inactive_on_update="false" label="Solution provided" sequence="7" value="Solution provided"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Resolved" max_length="40" name="resolved_at" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="inquiry" label="Category" max_length="40" name="category" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Network" sequence="4" value="network"/>
+                <element inactive_on_update="false" label="Password Reset" sequence="100" value="password_reset"/>
+                <element inactive_on_update="false" label="Inquiry / Help" sequence="1" value="inquiry"/>
+                <element inactive_on_update="false" label="Database" sequence="5" value="database"/>
+                <element inactive_on_update="false" label="Software" sequence="2" value="software"/>
+                <element inactive_on_update="false" label="Hardware" sequence="3" value="hardware"/>
+            </choice>
+        </element>
+        <element attributes="ignore_filter_on_new=true" hint="Business time elapsed (stored in seconds) before Incident was resolved" label="Business resolve time" max_length="40" name="business_stc" read_only="true" type="integer"/>
+        <element attributes="encode_utf8=false" hint="Change request that caused the incident" label="Caused by Change" max_length="32" name="caused_by" reference="change_request" type="reference"/>
+    </element>
+</database>

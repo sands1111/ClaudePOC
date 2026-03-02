@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>caller_id</field>
+        <global>true</global>
+        <isolate_script>false</isolate_script>
+        <messages/>
+        <name>Highlight VIP Caller (Smartphone)</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+	// if the caller_id field is not present, then we can't add an icon anywhere
+	if (!g_form.hasField('caller_id'))
+		return;
+		
+	if (!newValue)
+		return;
+
+	if (newValue === oldValue && isLoading) {
+		if (g_scratchpad.is_vip == 'true') {
+			g_form.addDecoration('caller_id', 'icon-star', 'VIP');
+		}
+
+		return;
+	}
+
+	g_form.getReference('caller_id', function(ref) {
+		g_form.removeDecoration('caller_id', 'icon-star', 'VIP');
+		
+		if (ref.getValue('vip') == 'true')
+			g_form.addDecoration('caller_id', 'icon-star', 'VIP');			
+	});
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2013-07-30 14:16:15</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9d048dcbeb320100d2d5abf11206fe60</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>Highlight VIP Caller (Smartphone)</sys_name>
+        <sys_overrides display_value="">global</sys_overrides>
+        <sys_package display_value="Mobile UI" source="com.glide.ui.m">e08c0cdd791232108bb291bde809c952</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_script_client_9d048dcbeb320100d2d5abf11206fe60</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:26</sys_updated_on>
+        <table>incident</table>
+        <type>onChange</type>
+        <ui_type>1</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8acb1f0000001</claim_timestamp>
+        <metadata_update_name>sys_script_client_9d048dcbeb320100d2d5abf11206fe60</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:26</sys_created_on>
+        <sys_id>56caa37c839b7610dfa1c7b6feaad3d8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:26</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8acb1e0000001</claim_timestamp>
+        <metadata_update_name>sys_script_client_9d048dcbeb320100d2d5abf11206fe60</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glide.ui.m</previous_claim_name>
+        <previous_claim_scope>com.glide.ui.m</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:26</sys_created_on>
+        <sys_id>9acaa37c839b7610dfa1c7b6feaad3d8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:26</sys_updated_on>
+    </sys_claim>
+</record_update>

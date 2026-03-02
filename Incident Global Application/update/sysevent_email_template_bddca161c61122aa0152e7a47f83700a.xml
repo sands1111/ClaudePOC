@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_email_template">
+    <sysevent_email_template action="INSERT_OR_UPDATE">
+        <collection>incident</collection>
+        <email_layout display_value="Unsubscribe and Preferences">1410041f3b0b2200c869c2c703efc41e</email_layout>
+        <message><![CDATA[Click here to view ${TABLE_NAME}: ${URI}
+]]></message>
+        <message_html/>
+        <message_list/>
+        <message_text/>
+        <name>notify.change</name>
+        <sms_alternate/>
+        <subject>${TABLE_NAME} ${DISPLAY_VALUE} Change Notification</subject>
+        <sys_class_name>sysevent_email_template</sys_class_name>
+        <sys_created_by>don.goodliffe</sys_created_by>
+        <sys_created_on>2005-10-04 22:59:44</sys_created_on>
+        <sys_id>bddca161c61122aa0152e7a47f83700a</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>notify.change</sys_name>
+        <sys_package display_value="Labels" source="com.glide.labels">397c0c9d791232108bb291bde809c945</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sysevent_email_template_bddca161c61122aa0152e7a47f83700a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:27</sys_updated_on>
+        <sys_version/>
+    </sysevent_email_template>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8acdea0000001</claim_timestamp>
+        <metadata_update_name>sysevent_email_template_bddca161c61122aa0152e7a47f83700a</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:27</sys_created_on>
+        <sys_id>a2cae37c839b7610dfa1c7b6feaad359</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:27</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8acde90000001</claim_timestamp>
+        <metadata_update_name>sysevent_email_template_bddca161c61122aa0152e7a47f83700a</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glide.labels</previous_claim_name>
+        <previous_claim_scope>com.glide.labels</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:27</sys_created_on>
+        <sys_id>e6cae37c839b7610dfa1c7b6feaad359</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:27</sys_updated_on>
+    </sys_claim>
+</record_update>

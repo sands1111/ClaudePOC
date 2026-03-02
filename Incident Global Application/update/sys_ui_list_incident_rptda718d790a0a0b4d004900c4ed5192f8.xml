@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="incident" version="2" view="Rptda718d790a0a0b4d004900c4ed5192f8">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>number</element>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="26721451799632108bb291bde809c9e1">0dd0f7750a0a0b5800c8add3aef4c6ec</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>glide.maint</sys_created_by>
+            <sys_created_on>2009-06-23 15:51:54</sys_created_on>
+            <sys_id>0dd0f7770a0a0b58003c0c8260aa81b6</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-08-17 12:42:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>priority</element>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="26721451799632108bb291bde809c9e1">0dd0f7750a0a0b5800c8add3aef4c6ec</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>glide.maint</sys_created_by>
+            <sys_created_on>2009-06-23 15:51:54</sys_created_on>
+            <sys_id>0dd0f7790a0a0b58005cee3401fa621a</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-08-17 13:01:09</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assignment_group</element>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="26721451799632108bb291bde809c9e1">0dd0f7750a0a0b5800c8add3aef4c6ec</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>glide.maint</sys_created_by>
+            <sys_created_on>2009-06-23 15:51:54</sys_created_on>
+            <sys_id>0dd0f77e0a0a0b580036020ecf492fbd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>glide.maint</sys_updated_by>
+            <sys_updated_on>2009-06-23 15:51:54</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assigned_to</element>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="26721451799632108bb291bde809c9e1">0dd0f7750a0a0b5800c8add3aef4c6ec</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>glide.maint</sys_created_by>
+            <sys_created_on>2009-06-23 15:51:54</sys_created_on>
+            <sys_id>0dd0f7800a0a0b580061b02d86786cb4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>glide.maint</sys_updated_by>
+            <sys_updated_on>2009-06-23 15:51:54</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>true</average_value>
+            <element>calendar_duration</element>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="26721451799632108bb291bde809c9e1">0dd0f7750a0a0b5800c8add3aef4c6ec</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>glide.maint</sys_created_by>
+            <sys_created_on>2009-06-23 15:51:54</sys_created_on>
+            <sys_id>0dd0f7830a0a0b58005c525f838a9950</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>glide.maint</sys_updated_by>
+            <sys_updated_on>2009-06-23 15:51:54</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>true</average_value>
+            <element>business_duration</element>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="26721451799632108bb291bde809c9e1">0dd0f7750a0a0b5800c8add3aef4c6ec</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>glide.maint</sys_created_by>
+            <sys_created_on>2009-06-23 15:51:54</sys_created_on>
+            <sys_id>0dd0f7850a0a0b580003010ad3c17d8b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>glide.maint</sys_updated_by>
+            <sys_updated_on>2009-06-23 15:51:54</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>incident</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>glide.maint</sys_created_by>
+            <sys_created_on>2009-06-23 15:51:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path/>
+            <sys_id>0dd0f7750a0a0b5800c8add3aef4c6ec</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_name>incident</sys_name>
+            <sys_package display_value="Best Practice - ITIL KPI Reports" source="com.snc.bestpractice.itil_kpi">5272d051799632108bb291bde809c9ab</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+            <sys_update_name>sys_ui_list_incident_Rptda718d790a0a0b4d004900c4ed5192f8</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-02-24 07:26:27</sys_updated_on>
+            <sys_user/>
+            <view display_value="Rptda718d790a0a0b4d004900c4ed5192f8" name="Rptda718d790a0a0b4d004900c4ed5192f8">26721451799632108bb291bde809c9e1</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8acf4f0000002</claim_timestamp>
+        <metadata_update_name>sys_ui_list_incident_RPTda718d790a0a0b4d004900c4ed5192f8</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:27</sys_created_on>
+        <sys_id>aacae37c839b7610dfa1c7b6feaad3a8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:27</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8acf4f0000001</claim_timestamp>
+        <metadata_update_name>sys_ui_list_incident_RPTda718d790a0a0b4d004900c4ed5192f8</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.bestpractice.itil_kpi</previous_claim_name>
+        <previous_claim_scope>com.snc.bestpractice.itil_kpi</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:27</sys_created_on>
+        <sys_id>eecae37c839b7610dfa1c7b6feaad3a8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:27</sys_updated_on>
+    </sys_claim>
+</record_update>

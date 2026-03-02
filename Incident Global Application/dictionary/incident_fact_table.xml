@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="0c7b0411791232108bb291bde809c915" label="Incident Fact Table" max_length="40" name="incident_fact_table" type="collection">
+        <element label="Assigned to" max_length="32" name="assigned_to" reference="sys_user" type="reference"/>
+        <element label="Fact count" max_length="40" name="fact_count" type="integer"/>
+        <element label="Open count" max_length="40" name="open_count" type="integer"/>
+        <element label="Category" max_length="40" name="category" type="string"/>
+        <element label="Time ID" max_length="40" name="time_id" type="glide_date_time"/>
+        <element label="Close count" max_length="40" name="close_count" type="integer"/>
+        <element label="Priority" max_length="40" name="priority" type="integer"/>
+        <element label="Location" max_length="32" name="location" reference="cmn_location" type="reference"/>
+        <index name="index">
+            <element name="assigned_to"/>
+        </index>
+        <index name="index2">
+            <element name="location"/>
+        </index>
+        <index name="index3">
+            <element name="time_id"/>
+        </index>
+    </element>
+</database>

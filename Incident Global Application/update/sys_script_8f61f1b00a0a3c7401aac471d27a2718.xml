@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>incident</collection>
+        <condition>current.isValidRecord() &amp;&amp; (current.state.changesTo(IncidentState.RESOLVED) || current.comments.changes() || current.work_notes.changes()) &amp;&amp; (current.child_incidents &gt; 0)</condition>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Update Child Incidents</name>
+        <order>1000</order>
+        <priority/>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[updateChildIncidents();
+
+function updateChildIncidents() {
+	if (current.state.changesTo(IncidentState.RESOLVED))
+		resolveChildIncidents();
+	else {
+		var value;
+		
+		if (current.comments.changes()) {
+			value = deriveFieldValue('comments', gs.getMessage('Comment copied from Parent Incident'));
+			
+			if (value && value != "")
+				executeFlowAction(current, 'comments', value);
+		}
+		
+		if (current.work_notes.changes()) {
+			value = deriveFieldValue('work_notes', gs.getMessage('Work note copied from Parent Incident'));
+			
+			if (value && value != "")
+				executeFlowAction(current, 'work_notes', value);
+		}
+		
+	}
+}
+
+function executeFlowAction (parentIncidentGr, fieldName, value) {
+	
+	try {
+		var inputs = {};
+		inputs['field'] = fieldName; // String 
+		inputs['value'] = value; // String 
+		inputs['parent_incident_gr'] = parentIncidentGr; // GlideRecord of table: incident
+		inputs['state_changes'] = current.state.changes();
+		sn_fd.FlowAPI.getRunner().action('global.update_child_incidents').inBackground().withInputs(inputs).run();
+					
+	} catch (ex) {
+		var message = ex.message;
+		gs.error("Error while updating parent incident {0}, Error: {1}", [parentIncidentGr.getDisplayValue(), message]);
+	}
+	
+}
+
+function deriveFieldValue(fieldName, msg) {
+	
+	var fieldRawValue = current.getValue(fieldName) + '';
+	var fieldValue = fieldRawValue.trim();
+	
+	if (fieldValue && fieldValue.length > 0) {
+		
+		if (fieldRawValue.indexOf(msg) == 0)
+			return (fieldRawValue);
+		else
+			return (msg + ": " + fieldRawValue);
+	}
+	
+	return;
+}
+
+//
+// Resolve active, unresolved incidents that are children of the current incident
+//
+function resolveChildIncidents() {
+    //check if update is valid or aborted before updating child incidents
+	if(current.isActionAborted())
+		return;
+
+	var incident = new GlideRecord("incident");
+	incident.addActiveQuery();
+	incident.addQuery("parent_incident", current.sys_id);
+	incident.addQuery("state", "!=", IncidentState.RESOLVED);
+	incident.query();
+	var msg = "";
+	while (incident.next()) {
+		gs.print("Incident " + incident.number + ' resolved based on resolution of Parent Incident ' + current.number);
+		incident.state = IncidentState.RESOLVED;
+		if (incident.isValidField("close_notes") && incident.close_notes.nil()) {
+			msg = gs.getMessage('{0} copied from Parent Incident', current.close_notes.getLabel());
+			if (current.close_notes.toString().indexOf(msg) == 0)
+				incident.close_notes = current.close_notes;
+			else
+				incident.close_notes = msg + ": " + current.close_notes;
+		}
+		if(incident.isValidField("close_code"))
+			incident.close_code = current.close_code;
+		msg = gs.getMessage("Resolved based on resolution of Parent Incident.");
+		if (current.comments.toString().indexOf(msg) == 0)
+			incident.comments = current.comments;
+		else
+			incident.comments = msg + " " + current.comments;
+		incident.work_notes = current.work_notes;
+		incident.update();
+	}
+}]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2010-05-13 01:58:00</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>8f61f1b00a0a3c7401aac471d27a2718</sys_id>
+        <sys_mod_count>116</sys_mod_count>
+        <sys_name>Update Child Incidents</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Upgrade content for 2011 - activated only for new instances" source="upgrade.2011_common_practice">f2e29c55799632108bb291bde809c9e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_script_8f61f1b00a0a3c7401aac471d27a2718</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:50</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=8f61f1b00a0a3c7401aac471d27a2718"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b27af0000001</claim_timestamp>
+        <metadata_update_name>sys_script_8f61f1b00a0a3c7401aac471d27a2718</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:50</sys_created_on>
+        <sys_id>cceae3bc839b7610dfa1c7b6feaad3e0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:50</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b27ae0000001</claim_timestamp>
+        <metadata_update_name>sys_script_8f61f1b00a0a3c7401aac471d27a2718</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>upgrade.2011_common_practice</previous_claim_name>
+        <previous_claim_scope>upgrade.2011_common_practice</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:50</sys_created_on>
+        <sys_id>0ceae3bc839b7610dfa1c7b6feaad3e1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:50</sys_updated_on>
+    </sys_claim>
+</record_update>

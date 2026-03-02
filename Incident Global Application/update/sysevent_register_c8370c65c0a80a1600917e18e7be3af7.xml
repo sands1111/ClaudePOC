@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_register">
+    <sysevent_register action="INSERT_OR_UPDATE">
+        <caller_access/>
+        <derived_priority/>
+        <description>A group is being affected by a task</description>
+        <event_name>group.affected</event_name>
+        <fired_by/>
+        <priority/>
+        <queue/>
+        <suffix/>
+        <sys_class_name>sysevent_register</sys_class_name>
+        <sys_created_by>glide.maint</sys_created_by>
+        <sys_created_on>2008-01-30 01:02:06</sys_created_on>
+        <sys_id>c8370c65c0a80a1600917e18e7be3af7</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>group.affected</sys_name>
+        <sys_package display_value="Subscription Based Notifications" source="com.glide.notification">b4ebc415791232108bb291bde809c9d3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sysevent_register_c8370c65c0a80a1600917e18e7be3af7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:48</sys_updated_on>
+        <table>incident</table>
+    </sysevent_register>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b20050000002</claim_timestamp>
+        <metadata_update_name>sysevent_register_c8370c65c0a80a1600917e18e7be3af7</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:48</sys_created_on>
+        <sys_id>6fdaa3bc839b7610dfa1c7b6feaad392</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:48</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b20050000001</claim_timestamp>
+        <metadata_update_name>sysevent_register_c8370c65c0a80a1600917e18e7be3af7</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glide.notification</previous_claim_name>
+        <previous_claim_scope>com.glide.notification</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:48</sys_created_on>
+        <sys_id>a3daa3bc839b7610dfa1c7b6feaad393</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:48</sys_updated_on>
+    </sys_claim>
+</record_update>

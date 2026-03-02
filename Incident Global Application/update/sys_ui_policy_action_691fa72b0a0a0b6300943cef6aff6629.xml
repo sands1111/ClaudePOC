@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>escalation</field>
+        <field_message/>
+        <field_message_type/>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>glide.maint</sys_created_by>
+        <sys_created_on>2007-10-04 03:47:03</sys_created_on>
+        <sys_id>691fa72b0a0a0b6300943cef6aff6629</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>escalation</sys_name>
+        <sys_package display_value="Best Practice - Incident Resolution Workflow" source="com.snc.bestpractice.incident">42729051799632108bb291bde809c994</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_ui_policy_action_691fa72b0a0a0b6300943cef6aff6629</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:25</sys_updated_on>
+        <table>incident</table>
+        <ui_policy display_value="Make fields read-only on close">66f94c730a0a0b0900aaaf5b88527230</ui_policy>
+        <value/>
+        <value_action/>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=691fa72b0a0a0b6300943cef6aff6629"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8bb02c0000002</claim_timestamp>
+        <metadata_update_name>sys_ui_policy_action_691fa72b0a0a0b6300943cef6aff6629</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:27:25</sys_created_on>
+        <sys_id>e00baffc839b7610dfa1c7b6feaad361</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:25</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8bb02c0000001</claim_timestamp>
+        <metadata_update_name>sys_ui_policy_action_691fa72b0a0a0b6300943cef6aff6629</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.bestpractice.incident</previous_claim_name>
+        <previous_claim_scope>com.snc.bestpractice.incident</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:27:25</sys_created_on>
+        <sys_id>280baffc839b7610dfa1c7b6feaad361</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:25</sys_updated_on>
+    </sys_claim>
+</record_update>

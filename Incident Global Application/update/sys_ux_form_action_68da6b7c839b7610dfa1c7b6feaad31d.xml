@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_form_action">
+    <sys_ux_form_action action="INSERT_OR_UPDATE">
+        <action_type>ui_action</action_type>
+        <active>true</active>
+        <declarative_action/>
+        <description/>
+        <name>Copy Incident</name>
+        <specificity>20</specificity>
+        <sys_class_name>sys_ux_form_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:36</sys_created_on>
+        <sys_id>68da6b7c839b7610dfa1c7b6feaad31d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Copy Incident</sys_name>
+        <sys_package display_value="Incident Global Application" source="bb71c7f883577610dfa1c7b6feaad3fb">bb71c7f883577610dfa1c7b6feaad3fb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_ux_form_action_68da6b7c839b7610dfa1c7b6feaad31d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:36</sys_updated_on>
+        <table>incident</table>
+        <ui_action display_value="Copy Incident">7678d7d2531232000600e26b88dc3401</ui_action>
+    </sys_ux_form_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=68da6b7c839b7610dfa1c7b6feaad31d"/>
+</record_update>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="metric_definition">
+    <metric_definition action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>When an incident goes into state resolved or closed, calculate the duration from open</description>
+        <field>incident_state</field>
+        <name>Create to Resolve Duration</name>
+        <number>MTRC0000002</number>
+        <order>100</order>
+        <script><![CDATA[// variables available
+// current: GlideRecord -  target incident
+// definition: GlideRecord -  (this row)
+var s = current.incident_state;
+if (s >= 6)
+  createMetric();
+
+function createMetric() {
+  var mi = new MetricInstance(definition, current);
+  if (mi.metricExists()) 
+    return; 
+
+  var gr = mi.getNewRecord();
+  gr.start = current.sys_created_on;
+  gr.end = current.sys_updated_on;
+  gr.duration = gs.dateDiff(gr.start.getDisplayValue(), gr.end.getDisplayValue());
+  gr.calculation_complete = true;
+  gr.insert();
+}
+]]></script>
+        <sys_class_name>metric_definition</sys_class_name>
+        <sys_created_by>glide.maint</sys_created_by>
+        <sys_created_on>2008-12-14 14:38:00</sys_created_on>
+        <sys_id>35edf981c0a808ae009895af7c843ace</sys_id>
+        <sys_mod_count>25</sys_mod_count>
+        <sys_name>Create to Resolve Duration</sys_name>
+        <sys_package display_value="Metric Definition" source="com.glide.metrics">1672d051799632108bb291bde809c9ac</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>metric_definition_35edf981c0a808ae009895af7c843ace</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:51</sys_updated_on>
+        <table>incident</table>
+        <timeline>false</timeline>
+        <type>calculation</type>
+    </metric_definition>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b2dd90000001</claim_timestamp>
+        <metadata_update_name>metric_definition_35edf981c0a808ae009895af7c843ace</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:51</sys_created_on>
+        <sys_id>e8ea67bc839b7610dfa1c7b6feaad321</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:51</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b2dd80000001</claim_timestamp>
+        <metadata_update_name>metric_definition_35edf981c0a808ae009895af7c843ace</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glide.metrics</previous_claim_name>
+        <previous_claim_scope>com.glide.metrics</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:51</sys_created_on>
+        <sys_id>20ea67bc839b7610dfa1c7b6feaad322</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:51</sys_updated_on>
+    </sys_claim>
+</record_update>

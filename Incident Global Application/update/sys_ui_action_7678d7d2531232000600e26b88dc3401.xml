@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>copy_incident</action_name>
+        <active>true</active>
+        <client>true</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+    getMessages(["Copy Incident", "Caller", "Failed to copy Incident.", "Include attachments", "Copy", "Create a new incident by copying the current incident. Specify a caller to proceed."], onCopy);
+
+    function onCopy(tMsgs) {
+        var fields = [];
+        fields.push({
+            type: 'reference',
+            name: 'caller_id',
+            label: tMsgs["Caller"],
+            mandatory: true,
+            reference: 'sys_user',
+            referringTable: 'incident',
+            referringRecordId: g_form.getUniqueValue()
+        });
+        var ga = new GlideAjax('IncidentUtils2');
+        ga.addParam('sysparm_name', 'getIncidentCopyAttachDetails');
+        ga.addParam('sysparm_sys_id', g_form.getUniqueValue());
+        ga.getXMLAnswer(function(response) {
+            response = JSON.parse(response + '');
+            if (response && response.hasAttachments) {
+                fields.push({
+                    type: 'boolean',
+                    name: 'include_attachments',
+                    label: tMsgs["Include attachments"],
+                    mandatory: false,
+                    value: response.copyAttachProp + '' === "true" ? true : false,
+                    referringTable: 'incident',
+                    referringRecordId: g_form.getUniqueValue()
+                });
+            }
+            g_modal.showFields({
+                title: tMsgs["Copy Incident"],
+                size: "md",
+                fields: fields,
+                confirmTitle: tMsgs["Copy"],
+                confirmType: "confirm",
+                instruction: tMsgs["Create a new incident by copying the current incident. Specify a caller to proceed."]
+            }).then(function(fieldValues) {
+                var updatedFields = {};
+                fieldValues.updatedFields.forEach(function(field) {
+                    updatedFields[field.name] = field.value;
+                });
+                ga = new GlideAjax('IncidentUtils2');
+                ga.addParam('sysparm_name', 'makeIncidentCopy');
+                ga.addParam('sysparm_sys_id', g_form.getUniqueValue());
+                ga.addParam('sysparm_fields', JSON.stringify(updatedFields));
+                ga.getXMLAnswer(function(response) {
+                    if (response + '' !== "false")
+                        g_aw.openRecord("incident", response + "");
+                    else
+                        g_form.addErrorMessage(tMsgs["Failed to copy Incident."]);
+                });
+            });
+        });
+    }
+}]]></client_script_v2>
+        <comments/>
+        <condition>IncidentUtils.isCopyIncidentEnabled() &amp;&amp; ( (gs.hasRole("itil") || (GlidePluginManager.isActive("com.snc.itsm.roles.incident_management") &amp;&amp; gs.hasRole("sn_incident_write"))) || current.caller_id == gs.getUserID() )</condition>
+        <form_action>true</form_action>
+        <form_button>false</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>true</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>true</form_menu_button_v2>
+        <form_style/>
+        <format_for_configurable_workspace>true</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>false</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <messages/>
+        <name>Copy Incident</name>
+        <onclick>OnCopyIncidentClick()</onclick>
+        <order>100</order>
+        <script><![CDATA[function OnCopyIncidentClick(){
+	var srcSysId = g_form.getUniqueValue();
+	var ga = new GlideAjax('IncidentUtils2');
+	ga.addParam('sysparm_name', 'getIncidentQueryParams');
+	ga.addParam('sysparm_src_sysid', srcSysId);
+	ga.addParam('sysparm_ui_action', "copy_incident");
+	ga.setWantSessionMessages(true);
+	ga.getXMLAnswer(function(queryParam){
+		if (queryParam) {
+			var ck;
+			if (typeof g_ck != 'undefined' && g_ck != "")
+				ck = g_ck;
+
+			var gotoUrl = [];
+			gotoUrl.push('srcSysID=' + srcSysId);
+			gotoUrl.push('newSysID=$sys_id');
+			gotoUrl.push('sysparm_returned_action=$action');
+			gotoUrl.push('sysparm_ui_action=copy_incident');
+			if (ck)
+				gotoUrl.push('sysparm_ck=' + ck);
+
+			gotoUrl = 'CopyIncidentRelatedLists.do?' + gotoUrl.join('&');
+
+			var form = cel('form', document.body);
+			hide(form);
+			form.method = "POST";
+			form.action = g_form.getTableName() + ".do";
+			if (ck)
+				addParam(form, 'sysparm_ck', g_ck);
+			addParam(form, 'sys_id', '-1');
+			addParam(form, 'sysparm_query', queryParam);
+			addParam(form, 'sysparm_goto_url', gotoUrl);
+			form.submit();
+		}else{
+			g_form.addErrorMessage("Failed to copy incident");
+		}
+	});
+}
+function addParam(form, name, val) {
+	var inp = cel('textarea', form);
+	inp.name = name;
+	inp.value = val;
+}]]></script>
+        <show_insert>false</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>naveen.aechan</sys_created_by>
+        <sys_created_on>2017-04-25 18:07:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>7678d7d2531232000600e26b88dc3401</sys_id>
+        <sys_mod_count>66</sys_mod_count>
+        <sys_name>Copy Incident</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Incident" source="com.snc.incident">b8211c11795632108bb291bde809c949</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_ui_action_7678d7d2531232000600e26b88dc3401</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:36</sys_updated_on>
+        <table>incident</table>
+        <ui11_compatible>false</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8af0f70000002</claim_timestamp>
+        <metadata_update_name>sys_ui_action_7678d7d2531232000600e26b88dc3401</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:36</sys_created_on>
+        <sys_id>ecda6b7c839b7610dfa1c7b6feaad318</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:36</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8af0f70000001</claim_timestamp>
+        <metadata_update_name>sys_ui_action_7678d7d2531232000600e26b88dc3401</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.incident</previous_claim_name>
+        <previous_claim_scope>com.snc.incident</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:36</sys_created_on>
+        <sys_id>24da6b7c839b7610dfa1c7b6feaad319</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:36</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_in_email_action">
+    <sysevent_in_email_action action="INSERT_OR_UPDATE">
+        <action>record_action</action>
+        <active>true</active>
+        <assignment_operator/>
+        <condition_script/>
+        <description>This inbound email action behaves the same as Update Incident, but additionally will reopen a closed incident if the email subject contains "please reopen". In reopening the incident, the incident state will be set to "2" and "The caller did not feel that this issue was resolved" will be added to the incident as a work note.</description>
+        <event_name>email.read</event_name>
+        <filter_condition/>
+        <from/>
+        <name>Update Incident (BP)</name>
+        <order>100</order>
+        <reply_email/>
+        <required_roles/>
+        <script><![CDATA[gs.include('validators');
+
+if (current.getTableName() == "incident") {
+	
+	var gr = current;
+	
+	if (email.subject.toLowerCase().indexOf("please reopen") >= 0)
+		gr = new Incident().reopen(gr, email) || gr;
+	
+	gr.comments = "reply from: " + email.origemail + "\n\n" + email.body_text;
+	
+	if (gs.hasRole("sn_incident_write") || gs.hasRole("itil")) {
+		if (email.body.assign != undefined)
+			gr.assigned_to = email.body.assign;
+		
+		if (email.body.priority != undefined && isNumeric(email.body.priority))
+			gr.priority = email.body.priority;
+	}
+	
+	if (gr.canWrite())
+		gr.update();
+}]]></script>
+        <stop_processing>false</stop_processing>
+        <sys_class_name>sysevent_in_email_action</sys_class_name>
+        <sys_created_by>glide.maint</sys_created_by>
+        <sys_created_on>2009-05-16 13:14:39</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>498e10410a0a0b4b007c8c7f63531747</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Update Incident (BP)</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="System Mailboxes" source="com.glide.mailbox">81db44d1791232108bb291bde809c92a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sysevent_in_email_action_498e10410a0a0b4b007c8c7f63531747</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:42</sys_updated_on>
+        <table>incident</table>
+        <template/>
+        <type>reply</type>
+    </sysevent_in_email_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b0ae40000002</claim_timestamp>
+        <metadata_update_name>sysevent_in_email_action_498e10410a0a0b4b007c8c7f63531747</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:42</sys_created_on>
+        <sys_id>1edaaf7c839b7610dfa1c7b6feaad31e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:42</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b0ae40000001</claim_timestamp>
+        <metadata_update_name>sysevent_in_email_action_498e10410a0a0b4b007c8c7f63531747</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glide.mailbox</previous_claim_name>
+        <previous_claim_scope>com.glide.mailbox</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:42</sys_created_on>
+        <sys_id>52daaf7c839b7610dfa1c7b6feaad31f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:42</sys_updated_on>
+    </sys_claim>
+</record_update>

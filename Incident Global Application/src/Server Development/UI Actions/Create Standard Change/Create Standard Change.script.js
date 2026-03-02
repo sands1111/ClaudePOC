@@ -1,1 +1,0 @@
-action.setRedirectURL(new StdChangeUtils().getURLForTask(current, 'rfc'));

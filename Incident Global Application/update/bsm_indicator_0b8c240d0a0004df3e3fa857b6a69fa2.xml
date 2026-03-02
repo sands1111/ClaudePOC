@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="bsm_indicator">
+    <bsm_indicator action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <active_dependencies>true</active_dependencies>
+        <active_metrics>true</active_metrics>
+        <cmdb_ci_field>cmdb_ci</cmdb_ci_field>
+        <conditions table="incident">active=true^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Active incidents</description>
+        <description_field>short_description</description_field>
+        <end_field>closed_at</end_field>
+        <icon>indicator-incident.svg</icon>
+        <label>Incident</label>
+        <name>incident</name>
+        <node_color>#fcc721</node_color>
+        <order>600</order>
+        <start_field>opened_at</start_field>
+        <sys_class_name>bsm_indicator</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2011-02-09 17:58:39</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>0b8c240d0a0004df3e3fa857b6a69fa2</sys_id>
+        <sys_mod_count>32</sys_mod_count>
+        <sys_name>incident</sys_name>
+        <sys_package display_value="BSM Map" source="com.glideapp.bsm_map2">b4319c51795632108bb291bde809c97b</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>bsm_indicator_0b8c240d0a0004df3e3fa857b6a69fa2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:26</sys_updated_on>
+        <table>incident</table>
+        <tooltip_info>short_description</tooltip_info>
+        <tooltip_label>number</tooltip_label>
+    </bsm_indicator>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8acc0a0000001</claim_timestamp>
+        <metadata_update_name>bsm_indicator_0b8c240d0a0004df3e3fa857b6a69fa2</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:26</sys_created_on>
+        <sys_id>5ecae37c839b7610dfa1c7b6feaad318</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:26</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8acc080000001</claim_timestamp>
+        <metadata_update_name>bsm_indicator_0b8c240d0a0004df3e3fa857b6a69fa2</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glideapp.bsm_map2</previous_claim_name>
+        <previous_claim_scope>com.glideapp.bsm_map2</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:26</sys_created_on>
+        <sys_id>92cae37c839b7610dfa1c7b6feaad319</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:26</sys_updated_on>
+    </sys_claim>
+</record_update>

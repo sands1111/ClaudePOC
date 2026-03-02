@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_in_email_action">
+    <sysevent_in_email_action action="INSERT_OR_UPDATE">
+        <action>record_action</action>
+        <active>true</active>
+        <assignment_operator/>
+        <condition_script/>
+        <description>This inbound email action is triggered when an email is sent to ServiceNow and the email is not a reply or forward.&#13;
+&#13;
+&#13;
+This inbound email action can set the following fields on a new Incident:&#13;
+&#13;
+assigned_to&#13;
+priority&#13;
+&#13;
+In addition to being able to explicitly set the values of the above fields within the email, the following is done automatically:&#13;
+&#13;
+1. The Incident caller_id is set to the the user who sent the email.&#13;
+2. The email subject is set as the Incident short description.&#13;
+3. The whole email is added to the Incident as a comment.&#13;
+4. The Incident category is set to "inquiry".&#13;
+5. The Incident state is set to "1".&#13;
+6. The Incident notify is set to "2".&#13;
+7. The Incident contact type is set to "email".&#13;
+&#13;
+&#13;
+Example email: This email will create a new Incident with the following:&#13;
+&#13;
+1. The Incident caller is set to "Fred Luddy".&#13;
+2. The Incident short description will be set to "Not able to connect to wireless network"&#13;
+3. The whole email body is added to the Incident as a comment.&#13;
+4. The Incident is assigned to "Bow Ruggeri" if the sender has the itil role.&#13;
+5. The Incident category is set to "inquiry".&#13;
+6. The Incident state is set to "1".&#13;
+7. The Incident notify is set to "2".&#13;
+8. The Incident contact type is set to "email".&#13;
+&#13;
+-----&#13;
+&#13;
+From: 	Fred Luddy &lt;fred.luddy@example.com&gt;&#13;
+Subject: 	Not able to connect to wireless network&#13;
+Date: 	June 11, 2013 1:44:55 PM PDT&#13;
+To: 	        ServiceNow&#13;
+&#13;
+The wireless network has been down for 30 minutes now. &#13;
+&#13;
+assign: Bow Ruggeri&#13;
+&#13;
+-----</description>
+        <event_name>email.read</event_name>
+        <filter_condition/>
+        <from/>
+        <name>Create Incident</name>
+        <order>100</order>
+        <reply_email/>
+        <required_roles/>
+        <script><![CDATA[//	Note: current.opened_by is already set to the first UserID that matches the From: email address
+
+current.caller_id = gs.getUserID();
+current.comments = "received from: " + email.origemail + "\n\n" + email.body_text;
+current.short_description = email.subject;
+
+current.category = "inquiry";
+current.incident_state = IncidentState.NEW;
+current.notify = 2;
+current.contact_type = "email";
+
+if (email.body.assign != undefined)
+   current.assigned_to = email.body.assign;
+
+if (email.importance != undefined) {
+   if (email.importance.toLowerCase() == "high") {
+		current.impact = 1;
+		current.urgency = 1;
+   }
+}
+
+if (current.canCreate())
+	current.insert();]]></script>
+        <stop_processing>false</stop_processing>
+        <sys_class_name>sysevent_in_email_action</sys_class_name>
+        <sys_created_by>david.loo</sys_created_by>
+        <sys_created_on>2005-04-13 18:26:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>3ccfeff5c611227a0180144333c87af9</sys_id>
+        <sys_mod_count>62</sys_mod_count>
+        <sys_name>Create Incident</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="System Mailboxes" source="com.glide.mailbox">81db44d1791232108bb291bde809c92a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sysevent_in_email_action_3ccfeff5c611227a0180144333c87af9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:42</sys_updated_on>
+        <table>incident</table>
+        <template/>
+        <type>new</type>
+    </sysevent_in_email_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b0a620000002</claim_timestamp>
+        <metadata_update_name>sysevent_in_email_action_3ccfeff5c611227a0180144333c87af9</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:42</sys_created_on>
+        <sys_id>d6daaf7c839b7610dfa1c7b6feaad309</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:42</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b0a620000001</claim_timestamp>
+        <metadata_update_name>sysevent_in_email_action_3ccfeff5c611227a0180144333c87af9</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glide.mailbox</previous_claim_name>
+        <previous_claim_scope>com.glide.mailbox</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:42</sys_created_on>
+        <sys_id>1edaaf7c839b7610dfa1c7b6feaad309</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:42</sys_updated_on>
+    </sys_claim>
+</record_update>

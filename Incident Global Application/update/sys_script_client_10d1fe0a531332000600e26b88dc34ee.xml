@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>This script is used to create a child incident through ui action present on "Child Incidents" related list.</description>
+        <field>active</field>
+        <global>true</global>
+        <isolate_script>false</isolate_script>
+        <messages/>
+        <name>CreateChildIncident</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+	NOW._createChildIncident = function(srcSysId){
+		var ga = new GlideAjax('IncidentUtils2');
+		ga.addParam('sysparm_name', 'getIncidentQueryParams');
+		ga.addParam('sysparm_src_sysid', srcSysId);
+		ga.addParam('sysparm_ui_action', "create_child_incident");
+		ga.setWantSessionMessages(true);
+		ga.getXMLAnswer(function(queryParam){
+			if (queryParam) {
+				var ck;
+				if (typeof g_ck != 'undefined' && g_ck != "")
+					ck = g_ck;
+
+				var gotoUrl = [];
+				gotoUrl.push('srcSysID=' + srcSysId);
+				gotoUrl.push('newSysID=$sys_id');
+				gotoUrl.push('sysparm_returned_action=$action');
+				if (ck)
+					gotoUrl.push('sysparm_ck=' + ck);
+
+				gotoUrl = 'CopyIncidentRelatedLists.do?' + gotoUrl.join('&');
+
+				var form = cel('form', document.body);
+				hide(form);
+				form.method = "POST";
+				form.action = "incident.do";
+				if (ck)
+					_addParam(form, 'sysparm_ck', g_ck);
+				_addParam(form, 'sys_id', '-1');
+				_addParam(form, 'sysparm_query', queryParam);
+				_addParam(form, 'sysparm_goto_url', gotoUrl);
+				form.submit();
+				}else{
+					g_form.addErrorMessage("Failed to create child incident");
+				}
+		});
+	};
+	function _addParam(form, name, val) {
+		var inp = cel('textarea', form);
+		inp.name = name;
+		inp.value = val;
+	}
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>naveen.aechan</sys_created_by>
+        <sys_created_on>2017-06-13 13:32:04</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>10d1fe0a531332000600e26b88dc34ee</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>CreateChildIncident</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Incident" source="com.snc.incident">b8211c11795632108bb291bde809c949</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_script_client_10d1fe0a531332000600e26b88dc34ee</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:25</sys_updated_on>
+        <table>incident</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8ac7b90000002</claim_timestamp>
+        <metadata_update_name>sys_script_client_10d1fe0a531332000600e26b88dc34ee</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:25</sys_created_on>
+        <sys_id>c6caa37c839b7610dfa1c7b6feaad354</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:25</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8ac7b90000001</claim_timestamp>
+        <metadata_update_name>sys_script_client_10d1fe0a531332000600e26b88dc34ee</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.incident</previous_claim_name>
+        <previous_claim_scope>com.snc.incident</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:25</sys_created_on>
+        <sys_id>0ecaa37c839b7610dfa1c7b6feaad354</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:25</sys_updated_on>
+    </sys_claim>
+</record_update>

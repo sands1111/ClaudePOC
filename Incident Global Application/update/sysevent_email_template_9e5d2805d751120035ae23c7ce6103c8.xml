@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_email_template">
+    <sysevent_email_template action="INSERT_OR_UPDATE">
+        <collection>incident</collection>
+        <email_layout display_value="Unsubscribe and Preferences Helvetica">6e23b0973b4b2200c869c2c703efc444</email_layout>
+        <message><![CDATA[<Number: ${task_effective_number}
+Short Description: ${short_description}
+Click here to view Incident: ${URI_REF}
+<hr/>
+Severity: ${severity}
+Priority: ${priority}
+Category: ${category}
+Comments:
+${comments}]]></message>
+        <message_html><![CDATA[<p class="p1">${mail_script:incident_body_header}</p>
+<p class="p1">${mail_script:incident_additional_details}</p>
+<p class="p1">${mail_script:incident_take_me_to_the_incident}</p>]]></message_html>
+        <message_list/>
+        <message_text/>
+        <name>incident.header.details</name>
+        <sms_alternate/>
+        <subject/>
+        <sys_class_name>sysevent_email_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-01-29 22:50:56</sys_created_on>
+        <sys_id>9e5d2805d751120035ae23c7ce6103c8</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>incident.header.details</sys_name>
+        <sys_package display_value="Incident Management Notification" source="com.snc.incident_notification">7c211c11795632108bb291bde809c94a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sysevent_email_template_9e5d2805d751120035ae23c7ce6103c8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:27</sys_updated_on>
+        <sys_version>2</sys_version>
+    </sysevent_email_template>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8acdb10000001</claim_timestamp>
+        <metadata_update_name>sysevent_email_template_9e5d2805d751120035ae23c7ce6103c8</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:27</sys_created_on>
+        <sys_id>a6cae37c839b7610dfa1c7b6feaad350</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:27</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8acdb00000001</claim_timestamp>
+        <metadata_update_name>sysevent_email_template_9e5d2805d751120035ae23c7ce6103c8</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.incident_notification</previous_claim_name>
+        <previous_claim_scope>com.snc.incident_notification</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:27</sys_created_on>
+        <sys_id>eacae37c839b7610dfa1c7b6feaad350</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:27</sys_updated_on>
+    </sys_claim>
+</record_update>

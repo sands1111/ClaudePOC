@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <applies_to/>
+        <condition table="incident.watch_list">caller_id=javascript:gs.getUserID()^ORopened_by=javascript:gs.getUserID()^incident_stateNOT IN7,8^EQ<item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <controlled_by_refs/>
+        <decision_type>allow</decision_type>
+        <description>Allow write for watch_list in incident, if the ACL condition (caller_id=javascript:gs.getUserID()^ORopened_by=javascript:gs.getUserID()^incident_stateNOT IN7,8^EQ) evaluates to true.</description>
+        <local_or_existing/>
+        <name>incident.watch_list</name>
+        <operation display_value="write">write</operation>
+        <script/>
+        <security_attribute/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2011-06-24 15:06:17</sys_created_on>
+        <sys_id>085453040f230000b12e6903cfe01284</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>incident.watch_list</sys_name>
+        <sys_package display_value="Upgrade content for 2011 - activated only for new instances" source="upgrade.2011_common_practice">f2e29c55799632108bb291bde809c9e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_security_acl_085453040f230000b12e6903cfe01284</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:04</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b5d610000001</claim_timestamp>
+        <metadata_update_name>sys_security_acl_085453040f230000b12e6903cfe01284</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:27:04</sys_created_on>
+        <sys_id>dfeaefbc839b7610dfa1c7b6feaad35f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:04</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b5d5f0000001</claim_timestamp>
+        <metadata_update_name>sys_security_acl_085453040f230000b12e6903cfe01284</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>upgrade.2011_common_practice</previous_claim_name>
+        <previous_claim_scope>upgrade.2011_common_practice</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:27:04</sys_created_on>
+        <sys_id>17eaefbc839b7610dfa1c7b6feaad360</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:04</sys_updated_on>
+    </sys_claim>
+</record_update>

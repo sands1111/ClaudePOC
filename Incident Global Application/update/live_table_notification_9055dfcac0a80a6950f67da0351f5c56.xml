@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="live_table_notification">
+    <live_table_notification action="INSERT_OR_UPDATE">
+        <action_insert>false</action_insert>
+        <action_update>true</action_update>
+        <active>false</active>
+        <before_script><![CDATA[/**
+  * Optional script to set variables or cancel notification
+  * global variables
+  *      current is the current GlideRecord object
+  *      changedFields is an ArrayList of fields changed on submit, use changedFields.contains('fieldname') to check for change
+  *      set answer = false to cancel the notification
+  *      set profileSource to a GlideRecord to define the profile that is posting the message
+  *      set profileID to a live_profile sys_id to define the profile that is posting the message, by default it is the current record. Overrides profileSource if specified.
+  */
+  
+  //cancel if the incident state hasn't changed
+   if (changedFields.contains("incident_state"))
+   answer = false;
+]]></before_script>
+        <condition table="incident">incident_state=6^EQ<item display_value="Resolved" endquery="false" field="incident_state" goto="false" newquery="false" operator="=" or="false" value="6"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <description>Incident resolved</description>
+        <document_groups/>
+        <feed_group/>
+        <message><![CDATA["${short_description}" has been resolved by ${sys_updated_by}
+]]></message>
+        <post_feed>true</post_feed>
+        <post_rooms>true</post_rooms>
+        <sys_class_name>live_table_notification</sys_class_name>
+        <sys_created_by>john.roberts</sys_created_by>
+        <sys_created_on>2011-01-16 19:38:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>9055dfcac0a80a6950f67da0351f5c56</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>Incident resolved</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Live Feed" source="com.glideapp.live_feed">86ac4091795232108bb291bde809c9cf</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>live_table_notification_9055dfcac0a80a6950f67da0351f5c56</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:46</sys_updated_on>
+        <table>incident</table>
+    </live_table_notification>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b18e40000002</claim_timestamp>
+        <metadata_update_name>live_table_notification_9055dfcac0a80a6950f67da0351f5c56</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:46</sys_created_on>
+        <sys_id>4bda63bc839b7610dfa1c7b6feaad32a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:46</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b18e40000001</claim_timestamp>
+        <metadata_update_name>live_table_notification_9055dfcac0a80a6950f67da0351f5c56</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glideapp.live_feed</previous_claim_name>
+        <previous_claim_scope>com.glideapp.live_feed</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:46</sys_created_on>
+        <sys_id>8fda63bc839b7610dfa1c7b6feaad32a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:46</sys_updated_on>
+    </sys_claim>
+</record_update>

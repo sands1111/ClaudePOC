@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_gauge">
+    <sys_gauge action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <aggregate>COUNT</aggregate>
+        <attributes/>
+        <fieldname/>
+        <group_field/>
+        <lower_limit/>
+        <name>Open Incidents Not Updated In Last 30 Days by Assignment Group and State</name>
+        <order/>
+        <other_threshold>-2</other_threshold>
+        <parent/>
+        <query/>
+        <report display_value="Open Incidents Not Updated In Last 30 Days by Assignment Group and State">83e19861ff2302001e68ffffffffff91</report>
+        <roles/>
+        <stack_field/>
+        <sys_class_name>sys_gauge</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2015-11-05 10:18:47</sys_created_on>
+        <sys_id>bf029861ff2302001e68ffffffffffb1</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Open Incidents Not Updated In Last 30 Days by Assignment Group and State</sys_name>
+        <sys_package display_value="Performance Analytics" source="com.snc.pa">26e39cd579d632108bb291bde809c94b</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_gauge_bf029861ff2302001e68ffffffffffb1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:28</sys_updated_on>
+        <tablename>incident</tablename>
+        <title>Open Incidents Not Updated In Last 30 Days by Assignment Group and State</title>
+        <type>report</type>
+        <upper_limit/>
+        <url/>
+        <view/>
+    </sys_gauge>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8bbbb80000002</claim_timestamp>
+        <metadata_update_name>sys_gauge_bf029861ff2302001e68ffffffffffb1</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:27:28</sys_created_on>
+        <sys_id>910b233083db7610dfa1c7b6feaad37c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:28</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8bbbb80000001</claim_timestamp>
+        <metadata_update_name>sys_gauge_bf029861ff2302001e68ffffffffffb1</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.pa</previous_claim_name>
+        <previous_claim_scope>com.snc.pa</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:27:28</sys_created_on>
+        <sys_id>d50b233083db7610dfa1c7b6feaad37c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:27:28</sys_updated_on>
+    </sys_claim>
+</record_update>

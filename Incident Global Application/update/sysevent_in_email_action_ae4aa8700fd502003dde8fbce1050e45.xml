@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_in_email_action">
+    <sysevent_in_email_action action="INSERT_OR_UPDATE">
+        <action>record_action</action>
+        <active>true</active>
+        <assignment_operator/>
+        <condition_script/>
+        <description>Checks if an email reply is a response to an email that was sent out by the 'On-Call: Assign by Acknowledgement' workflow
+Parse the inbound email and strip the text after incident number and check the remaining text for ACC or REJ and assign after checking the notify device table for any user association with that email (sent from).</description>
+        <event_name>email.read</event_name>
+        <filter_condition/>
+        <from/>
+        <name>On-Call: Assign by Acknowledgement</name>
+        <order>101</order>
+        <reply_email/>
+        <required_roles/>
+        <script><![CDATA[var log = new GSLog('com.snc.on_call_rotation.log.level', "On-Call: Assign by Acknowledgement Email Inbound Action");
+var emailType = new global.OnCallConstants().COMMUNICATION_CHANNEL.EMAIL;
+var flowUtils = new global.OnCallFlowUtils();
+var userId = getUserId(email);
+var isSubFlow = flowUtils.isSubflow(current, userId);
+var keywords, userResponse;
+if (isSubFlow) {
+    var commUtils = new global.OnCallCommunicationUtils();
+    var commConfigGr = commUtils.getApplicableCommConfigRecordsForChannelTypes(current.getTableName(), current.getUniqueValue(), emailType);
+    if (commConfigGr.next()) {
+        keywords = commUtils.getParsedKeyWords(commConfigGr, userId);
+        userResponse = flowUtils.parseEmailResponse(email.body_text, keywords);
+        if (log.atLevel(GSLog.DEBUG))
+            log.logDebug('[process] user response: ' + userResponse);
+
+        new OnCallAssignByAck()
+            .setRecord(current)
+            .setEmail(email)
+            .setUser(userId)
+            .setUserResponse(userResponse)
+            .setIsSubflow(true)
+            .process();
+
+        new OnCallCommunicationProviderUtil().callProcessResponse(emailType, current, userResponse, {
+            "userId": userId
+        });
+    } else {
+        gs.error("No config record for email");
+    }
+
+} else {
+    keywords = {
+        "accept_keyword": "ACC",
+        "reject_keyword": "REJ"
+    };
+    userResponse = flowUtils.parseEmailResponse(email.body_text, keywords);
+    if (log.atLevel(GSLog.DEBUG))
+        log.logDebug('[process] user response: ' + userResponse);
+
+    new OnCallAssignByAck()
+        .setRecord(current)
+        .setEmail(email)
+        .setUser(userId)
+        .setUserResponse(userResponse)
+        .process();
+}
+
+function getUserId(email) {
+    var userId = gs.getUserID();
+
+    // For non-primary email devices system can not find a user with "from" email and it runs in guest session
+    if (gs.nil(email.user_id)) {
+        var notifGr = new GlideRecord("cmn_notif_device");
+        notifGr.addQuery("email_address", email.fromAddress);
+        notifGr.setLimit(1);
+        notifGr.query();
+        if (notifGr.next()) {
+            userId = notifGr.getValue("user");
+
+            // For reject case sys_email is queried with processed user's id, populating user_id field to make the email traceable for reject case
+            populateUserToEmail(sys_email.sys_id, userId);
+        }
+
+    }
+    return userId;
+}
+
+function populateUserToEmail(emailId, userId) {
+    if (gs.nil(emailId) || gs.nil(userId)) return;
+    var emailGr = new GlideRecord("sys_email");
+    if (emailGr.get(emailId)) {
+        emailGr.setValue("user_id", userId);
+        emailGr.setValue("user", userId);
+        emailGr.setWorkflow(false);
+        emailGr.update();
+    }
+}]]></script>
+        <stop_processing>false</stop_processing>
+        <sys_class_name>sysevent_in_email_action</sys_class_name>
+        <sys_created_by>aat.rutten@snc</sys_created_by>
+        <sys_created_on>2015-07-14 07:48:47</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>ae4aa8700fd502003dde8fbce1050e45</sys_id>
+        <sys_mod_count>116</sys_mod_count>
+        <sys_name>On-Call: Assign by Acknowledgement</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="On-Call Scheduling" source="com.snc.on_call_rotation">726510dd791a32108bb291bde809c983</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sysevent_in_email_action_ae4aa8700fd502003dde8fbce1050e45</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:43</sys_updated_on>
+        <table>incident</table>
+        <template/>
+        <type>reply</type>
+    </sysevent_in_email_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b0b980000001</claim_timestamp>
+        <metadata_update_name>sysevent_in_email_action_ae4aa8700fd502003dde8fbce1050e45</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:43</sys_created_on>
+        <sys_id>9adaaf7c839b7610dfa1c7b6feaad331</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:43</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b0b970000001</claim_timestamp>
+        <metadata_update_name>sysevent_in_email_action_ae4aa8700fd502003dde8fbce1050e45</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.on_call_rotation</previous_claim_name>
+        <previous_claim_scope>com.snc.on_call_rotation</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:43</sys_created_on>
+        <sys_id>dedaaf7c839b7610dfa1c7b6feaad331</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:43</sys_updated_on>
+    </sys_claim>
+</record_update>

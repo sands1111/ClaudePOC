@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_producer">
+    <sc_cat_item_producer action="INSERT_OR_UPDATE">
+        <access_type>restricted</access_type>
+        <active>true</active>
+        <allow_edit>false</allow_edit>
+        <availability>on_both</availability>
+        <billable>false</billable>
+        <can_cancel>true</can_cancel>
+        <category/>
+        <cc_render_type/>
+        <checked_out/>
+        <cost>0</cost>
+        <custom_cart/>
+        <delivery_plan display_value="DEFAULT">523da512c611228900811a37c97c2014</delivery_plan>
+        <delivery_plan_script/>
+        <delivery_time>1970-01-03 00:00:00</delivery_time>
+        <description><![CDATA[<p style="margin: 0px;"><span style="font-family: arial,helvetica,sans-serif; font-size: medium;">Request assistance with an issue you are having. An incident record will be created and managed through to successful resolution. You will also be notified of progress.</span></p>]]></description>
+        <display_price_property>non_zero</display_price_property>
+        <entitlement_script/>
+        <flow_designer_flow/>
+        <fulfillment_automation_level/>
+        <group/>
+        <hide_sp>false</hide_sp>
+        <icon/>
+        <ignore_price>false</ignore_price>
+        <image/>
+        <list_price>0</list_price>
+        <location/>
+        <make_item_non_conversational>false</make_item_non_conversational>
+        <mandatory_attachment>false</mandatory_attachment>
+        <meta/>
+        <mobile_hide_price>false</mobile_hide_price>
+        <mobile_picture/>
+        <mobile_picture_type>use_mobile_picture</mobile_picture_type>
+        <model/>
+        <name>Create Incident using VA</name>
+        <no_attachment_v2>false</no_attachment_v2>
+        <no_cart>false</no_cart>
+        <no_cart_v2>false</no_cart_v2>
+        <no_delivery_time_v2>false</no_delivery_time_v2>
+        <no_order>false</no_order>
+        <no_order_now>false</no_order_now>
+        <no_proceed_checkout>false</no_proceed_checkout>
+        <no_quantity>false</no_quantity>
+        <no_quantity_v2>false</no_quantity_v2>
+        <no_save_as_draft>false</no_save_as_draft>
+        <no_search>false</no_search>
+        <no_wishlist_v2>false</no_wishlist_v2>
+        <omit_price>false</omit_price>
+        <order>200</order>
+        <ordered_item_link/>
+        <owner/>
+        <picture/>
+        <post_insert_script/>
+        <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=9531047253230010fa75ddeeff7b1262&amp;sysparm_preview=true", "summary");</preview>
+        <price>0</price>
+        <published_ref/>
+        <recurring_frequency/>
+        <recurring_price>0</recurring_price>
+        <redirect_url>generated_record</redirect_url>
+        <request_method/>
+        <roles/>
+        <save_options/>
+        <save_script/>
+        <sc_catalogs/>
+        <sc_ic_item_staging/>
+        <sc_ic_version/>
+        <sc_template/>
+        <script><![CDATA[var caller = gs.getUserID();
+var parent_table = RP.getParameterValue('sysparm_parent_table');
+if (JSUtil.notNil(parent_table)) {
+	var parent_map = new GlideRecord('request_parent_mapping');
+	parent_map.addQuery('parent_table', parent_table);
+	parent_map.query();
+	if (parent_map.next())
+		var requested_for_field = parent_map.getValue('requested_for_field');
+	var parentGR = new GlideRecord(parent_table);
+	parentGR.addQuery('sys_id', RP.getParameterValue('sysparm_parent_sys_id'));
+	parentGR.query();
+	if (parentGR.next())
+		caller = parentGR.getValue(requested_for_field);
+}
+current.contact_type = 'virtual_agent';
+current.caller_id = caller;
+if (producer.comments.length > 80)
+	current.short_description = producer.comments.substring(0, 79);
+else
+	current.short_description = producer.comments;
+current.description = producer.comments;
+
+var incRPUtil = new LinkRecordProducerToIncident();
+incRPUtil.linkRecordProducerToParentIncident(RP.getParameterValue('sysparm_parent_sys_id'), current);
+
+]]></script>
+        <short_description>Create an Incident record to report and request assistance with an issue you are having</short_description>
+        <show_variable_help_on_load>false</show_variable_help_on_load>
+        <start_closed>false</start_closed>
+        <state/>
+        <sys_class_name>sc_cat_item_producer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-17 23:46:47</sys_created_on>
+        <sys_id>9531047253230010fa75ddeeff7b1262</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Create Incident using VA</sys_name>
+        <sys_package display_value="Service Management Virtual Agent Core" source="com.glideapp.sm_va_core">47da1c99791e32108bb291bde809c94f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sc_cat_item_producer_9531047253230010fa75ddeeff7b1262</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:41</sys_updated_on>
+        <table_name>incident</table_name>
+        <taxonomy_topic/>
+        <template/>
+        <template_manager_roles/>
+        <type>item</type>
+        <use_sc_layout>true</use_sc_layout>
+        <vendor/>
+        <version>3</version>
+        <view>ess</view>
+        <visible_bundle>true</visible_bundle>
+        <visible_guide>true</visible_guide>
+        <visible_standalone>true</visible_standalone>
+        <workflow/>
+    </sc_cat_item_producer>
+    <sys_translated_text action="delete_multiple" query="documentkey=9531047253230010fa75ddeeff7b1262"/>
+    <fx_price action="delete_multiple" query="id=9531047253230010fa75ddeeff7b1262"/>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>price</field>
+        <id>9531047253230010fa75ddeeff7b1262</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-17 23:46:47</sys_created_on>
+        <sys_id>9131447253230010fa75ddeeff7b1216</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-17 23:46:49</sys_updated_on>
+        <table>sc_cat_item_producer</table>
+        <type>calculated</type>
+    </fx_price>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>recurring_price</field>
+        <id>9531047253230010fa75ddeeff7b1262</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-17 23:46:47</sys_created_on>
+        <sys_id>1931447253230010fa75ddeeff7b1217</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-17 23:46:49</sys_updated_on>
+        <table>sc_cat_item_producer</table>
+        <type>calculated</type>
+    </fx_price>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <chunk_size_bytes/>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>icon</file_name>
+        <hash/>
+        <image_height/>
+        <image_width/>
+        <size_bytes>268</size_bytes>
+        <size_compressed>286</size_compressed>
+        <state>available</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-17 23:46:49</sys_created_on>
+        <sys_id>3931447253230010fa75ddeeff7b123d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-17 23:46:49</sys_updated_on>
+        <table_name>ZZ_YYsc_cat_item_producer</table_name>
+        <table_sys_id>9531047253230010fa75ddeeff7b1262</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="icon" sys_id="3931447253230010fa75ddeeff7b123d">3931447253230010fa75ddeeff7b123d</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-17 23:46:49</sys_created_on>
+        <sys_id>3131447253230010fa75ddeeff7b123f</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>6wzwc+flkuJiYGDg9fRwCQLSAiDMwQYk5T//TwRSkiWuESXB+Wkl5YlFqQyOKflJqQqeuYnpqUGpiSmVhSdTbYCK1nm6OIZU3EpKYWjq6TrHxnbowaGevk+8L5rOKBw6cqzUfsr6BvZ0hqt7bYpTzrPyLG7U++F/omrBrL8KpQ5zGnTOHXGwmtGfw6HJpsPyyE2DTTKJQShFMczcgEFcoXK5nAfnhNesbF6HEwokHnB4RaRIMvgaL2hxj9JxWOzL4HmCQcNtD6PDBf4jfBk1p5gnCp6M7624IsugtoQ54+cxQRW2z0wel+T6Gfkn8DZfkndgcWhgZEieYp72yOeKFtDlDJ6ufi7rnBKaAG2ezRUMAQAA
+		</data>
+        <length>368</length>
+        <position>1</position>
+        <sys_attachment display_value="icon" sys_id="3931447253230010fa75ddeeff7b123d">3931447253230010fa75ddeeff7b123d</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-17 23:46:49</sys_created_on>
+        <sys_id>3931447253230010fa75ddeeff7b123f</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <chunk_size_bytes/>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>mobile_picture</file_name>
+        <hash/>
+        <image_height/>
+        <image_width/>
+        <size_bytes>8112</size_bytes>
+        <size_compressed>8081</size_compressed>
+        <state/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-17 23:46:49</sys_created_on>
+        <sys_id>b931447253230010fa75ddeeff7b123f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-17 23:46:49</sys_updated_on>
+        <table_name>ZZ_YYsc_cat_item_producer</table_name>
+        <table_sys_id>9531047253230010fa75ddeeff7b1262</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="mobile_picture" sys_id="b931447253230010fa75ddeeff7b123f">b931447253230010fa75ddeeff7b123f</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-17 23:46:49</sys_created_on>
+        <sys_id>f531447253230010fa75ddeeff7b1241</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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
+		</data>
+        <length>3736</length>
+        <position>1</position>
+        <sys_attachment display_value="mobile_picture" sys_id="b931447253230010fa75ddeeff7b123f">b931447253230010fa75ddeeff7b123f</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-17 23:46:49</sys_created_on>
+        <sys_id>7931447253230010fa75ddeeff7b1241</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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
+		</data>
+        <length>3736</length>
+        <position>2</position>
+        <sys_attachment display_value="mobile_picture" sys_id="b931447253230010fa75ddeeff7b123f">b931447253230010fa75ddeeff7b123f</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-17 23:46:49</sys_created_on>
+        <sys_id>f931447253230010fa75ddeeff7b1241</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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
+		</data>
+        <length>3296</length>
+        <position>3</position>
+        <sys_attachment display_value="mobile_picture" sys_id="b931447253230010fa75ddeeff7b123f">b931447253230010fa75ddeeff7b123f</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-17 23:46:49</sys_created_on>
+        <sys_id>7531447253230010fa75ddeeff7b1241</sys_id>
+    </sys_attachment_doc>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8afa020000002</claim_timestamp>
+        <metadata_update_name>sc_cat_item_producer_9531047253230010fa75ddeeff7b1262</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:38</sys_created_on>
+        <sys_id>95daab7c839b7610dfa1c7b6feaad3ea</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:38</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8afa020000001</claim_timestamp>
+        <metadata_update_name>sc_cat_item_producer_9531047253230010fa75ddeeff7b1262</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glideapp.sm_va_core</previous_claim_name>
+        <previous_claim_scope>com.glideapp.sm_va_core</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:38</sys_created_on>
+        <sys_id>d9daab7c839b7610dfa1c7b6feaad3ea</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:38</sys_updated_on>
+    </sys_claim>
+</record_update>

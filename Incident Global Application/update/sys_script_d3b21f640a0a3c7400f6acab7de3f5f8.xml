@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>incident</collection>
+        <condition>current.incident_state == IncidentState.RESOLVED  || current.incident_state == IncidentState.CLOSED</condition>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>mark_resolved</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[setResolutionFields();
+
+function setResolutionFields() {
+   if (current.resolved_by.nil())
+      current.resolved_by = gs.getUserID();
+   if (current.resolved_at.nil())
+      current.resolved_at = gs.nowDateTime();
+   
+   // Update the fields that indicate the time and duration of this incident from open to resolve.
+   // Keep track of duration as a glide_duration value (dd hh:mm:ss) and as a pure number of seconds.
+   // Both calendar time and business time are maintained.
+   
+   var dataChange = current.opened_at.changes() || current.resolved_at.changes();
+   var opened = current.opened_at.getDisplayValue();
+   var resolved = current.resolved_at.getDisplayValue();
+
+   if (dataChange || current.business_duration.nil())
+      current.business_duration = gs.calDateDiff(opened, resolved, false);
+   
+   if (dataChange || current.business_stc.nil())
+      current.business_stc = gs.calDateDiff(opened, resolved, true);
+   
+   if (dataChange || current.calendar_duration.nil())
+      current.calendar_duration = gs.dateDiff(opened, resolved, false);
+   
+   if (dataChange || current.calendar_stc.nil())
+      current.calendar_stc = gs.dateDiff(opened, resolved, true);
+}]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2010-09-02 18:25:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>d3b21f640a0a3c7400f6acab7de3f5f8</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>mark_resolved</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Incident Resolution Fields" source="com.snc.incident_resolution_fields">92729051799632108bb291bde809c9d2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</sys_scope>
+        <sys_update_name>sys_script_d3b21f640a0a3c7400f6acab7de3f5f8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:51</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=d3b21f640a0a3c7400f6acab7de3f5f8"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b2aec0000001</claim_timestamp>
+        <metadata_update_name>sys_script_d3b21f640a0a3c7400f6acab7de3f5f8</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Incident Global Application</previous_claim_name>
+        <previous_claim_scope>bb71c7f883577610dfa1c7b6feaad3fb</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:51</sys_created_on>
+        <sys_id>94ea27bc839b7610dfa1c7b6feaad382</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:51</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Incident Global Application">bb71c7f883577610dfa1c7b6feaad3fb</claim_owner_scope>
+        <claim_timestamp>19c8e8b2aeb0000001</claim_timestamp>
+        <metadata_update_name>sys_script_d3b21f640a0a3c7400f6acab7de3f5f8</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.incident_resolution_fields</previous_claim_name>
+        <previous_claim_scope>com.snc.incident_resolution_fiel</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 07:26:51</sys_created_on>
+        <sys_id>d0ea27bc839b7610dfa1c7b6feaad383</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 07:26:51</sys_updated_on>
+    </sys_claim>
+</record_update>
