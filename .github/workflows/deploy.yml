@@ -1,0 +1,29 @@
+name: Deploy to ServiceNow
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: ServiceNow Deploy
+        uses: ServiceNow/sncicd-publish-app@2.0.0 # Uses official SN Action
+        with:
+          version: '1.0.${{ github.run_number }}'
+        env:
+          nowUsername: ${{ secrets.SN_USERNAME }}
+          nowPassword: ${{ secrets.SN_PASSWORD }}
+          nowSourceInstance: ${{ secrets.SN_INSTANCE_URL }}
+          appScope: 'x_1234_awesome'
