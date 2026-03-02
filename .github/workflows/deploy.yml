@@ -21,6 +21,7 @@ jobs:
       - name: ServiceNow Deploy
         uses: ServiceNow/sncicd-publish-app@2.0.0 # Uses official SN Action
         with:
+          versionFormat: exact
           version: '1.0.${{ github.run_number }}'
         env:
           nowUsername: ${{ secrets.SN_USERNAME }}
