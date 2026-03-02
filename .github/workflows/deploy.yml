@@ -27,4 +27,4 @@ jobs:
           nowUsername: ${{ secrets.SN_USERNAME }}
           nowPassword: ${{ secrets.SN_PASSWORD }}
           nowSourceInstance: ${{ secrets.SN_INSTANCE_URL }}
-          appScope: 'x_1234_awesome'
+          appSysID: 'bb71c7f883577610dfa1c7b6feaad3fb'
