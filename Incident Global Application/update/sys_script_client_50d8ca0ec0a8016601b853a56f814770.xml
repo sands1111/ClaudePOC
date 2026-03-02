@@ -7,7 +7,7 @@
         <field>active</field>
         <global>true</global>
         <isolate_script>false</isolate_script>
-        <messages>I blurred</messages>
+        <messages>I am blurred</messages>
         <name>Sample: Setting an onBlur Handler</name>
         <order/>
         <script><![CDATA[function onLoad() {
@@ -17,7 +17,7 @@
 }
 
 function myOnBlur() {
-    alert(getMessage('I blurred'));
+    alert(getMessage('I am blurred'));
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>glide.maint</sys_created_by>
