@@ -44,8 +44,8 @@ jobs:
             filename=$(basename "$file" .script.js)
             echo "Looking for: $filename"
 
-            # Find sys_id from runtimemap.json - search in sys_script_client section
-            sys_id=$(jq -r --arg name "$filename" '.sys_script_client[$name].sys_id // empty' "Incident Global Application/system/runtimemap.json" 2>/dev/null || echo "")
+            # Find sys_id from runtimemap.json - search in Client Development > Client Scripts
+            sys_id=$(jq -r --arg name "$filename" '."Client Development"."Client Scripts"[$name].sys_id // empty' "Incident Global Application/system/runtimemap.json" 2>/dev/null || echo "")
 
             if [ -z "$sys_id" ]; then
               echo "Warning: Could not find sys_id for $filename, skipping..."
