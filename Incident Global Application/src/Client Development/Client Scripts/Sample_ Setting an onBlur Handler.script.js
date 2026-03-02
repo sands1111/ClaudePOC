@@ -5,5 +5,5 @@ function onLoad() {
 }
 
 function myOnBlur() {
-    alert(getMessage('I am blurred'));
+    alert(getMessage('I am blurred!'));
 }
